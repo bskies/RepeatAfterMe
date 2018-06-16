@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Heavy</string>
+        </array>
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-DemiBold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Panels4VC-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="Panels4VC" customModule="RepeatAfterMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Jqy-S2-k7S">
+                                <rect key="frame" x="20" y="44" width="335" height="714"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Obu-od-kLj">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="347"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKK-aw-Lvb">
+                                                <rect key="frame" x="0.0" y="0.0" width="157.66666666666666" height="347"/>
+                                                <color key="backgroundColor" red="0.0" green="0.77191840277777779" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="Bcx-aO-Ryx" appends="YES" id="nPj-K1-Mx3"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nvh-q3-Ixh">
+                                                <rect key="frame" x="177.66666666666663" y="0.0" width="157.33333333333337" height="347"/>
+                                                <color key="backgroundColor" red="0.77897135416666663" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="DRj-zJ-G5v" appends="YES" id="uqA-B3-Gfs"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Obu-od-kLj" secondAttribute="height" multiplier="1:1" id="7bK-1R-AcA"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="7bK-1R-AcA"/>
+                                            </mask>
+                                        </variation>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cp8-jX-gKS">
+                                        <rect key="frame" x="0.0" y="367" width="335" height="347"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wox-XP-8bW">
+                                                <rect key="frame" x="0.0" y="0.0" width="157.66666666666666" height="347"/>
+                                                <color key="backgroundColor" red="0.82476128472222221" green="0.79142252604166663" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="Bsv-Dp-V9E" appends="YES" id="RKH-sV-Ql5"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ou-KC-2UP">
+                                                <rect key="frame" x="177.66666666666663" y="0.0" width="157.33333333333337" height="347"/>
+                                                <color key="backgroundColor" red="0.0" green="0.13145616319444445" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="Og1-ca-HXt" appends="YES" id="QFq-9E-p0k"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="cp8-jX-gKS" secondAttribute="height" multiplier="1:1" id="o5z-Ng-PRk"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="o5z-Ng-PRk"/>
+                                            </mask>
+                                        </variation>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="cp8-jX-gKS" secondAttribute="bottom" id="53q-Fa-Mvi"/>
+                                    <constraint firstItem="cp8-jX-gKS" firstAttribute="top" secondItem="Obu-od-kLj" secondAttribute="bottom" constant="20" id="5bj-Iw-ApP"/>
+                                    <constraint firstItem="Obu-od-kLj" firstAttribute="leading" secondItem="Jqy-S2-k7S" secondAttribute="leading" id="6bi-Ag-GAw"/>
+                                    <constraint firstAttribute="trailing" secondItem="cp8-jX-gKS" secondAttribute="trailing" id="Dp2-qX-XvY"/>
+                                    <constraint firstAttribute="trailing" secondItem="Obu-od-kLj" secondAttribute="trailing" id="VY5-Tf-Vcr"/>
+                                    <constraint firstItem="Obu-od-kLj" firstAttribute="top" secondItem="Jqy-S2-k7S" secondAttribute="top" id="YbH-Id-Ddp"/>
+                                    <constraint firstItem="cp8-jX-gKS" firstAttribute="leading" secondItem="Jqy-S2-k7S" secondAttribute="leading" id="zb8-B0-qwl"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTQ-Rx-ew4">
+                                <rect key="frame" x="101.66666666666669" y="345" width="172" height="122"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="80"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="muj-XV-LC6"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Over.  Score: " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ISc-0s-GBH" userLabel="Game Over. Score:">
+                                <rect key="frame" x="68.666666666666686" y="117" width="238" height="110.33333333333331"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="238" id="Xnz-oB-Dsq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <size key="shadowOffset" width="3" height="1"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Jqy-S2-k7S" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="80B-Ib-sHi"/>
+                            <constraint firstItem="ISc-0s-GBH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="73" id="8Lu-5X-1b7"/>
+                            <constraint firstItem="RTQ-Rx-ew4" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9aD-9v-LGt"/>
+                            <constraint firstItem="ISc-0s-GBH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WzV-Tl-m6p"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jqy-S2-k7S" secondAttribute="trailing" constant="20" id="ZCf-1f-V2E"/>
+                            <constraint firstItem="Jqy-S2-k7S" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="h2g-UG-GHr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Jqy-S2-k7S" secondAttribute="bottom" constant="20" id="sIN-Bh-H1n"/>
+                            <constraint firstItem="RTQ-Rx-ew4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="trg-nQ-8AN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="bluePanel" destination="8ou-KC-2UP" id="hEa-bK-Sao"/>
+                        <outlet property="greenPanel" destination="dKK-aw-Lvb" id="upE-61-jtt"/>
+                        <outlet property="redPanel" destination="Nvh-q3-Ixh" id="cHB-B3-azA"/>
+                        <outlet property="startButton" destination="RTQ-Rx-ew4" id="SXg-X6-Jga"/>
+                        <outlet property="userMessage" destination="ISc-0s-GBH" id="uS3-ht-SQg"/>
+                        <outlet property="yellowPanel" destination="wox-XP-8bW" id="Uel-3B-YXr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.0" id="Bcx-aO-Ryx" userLabel="Gesture Recognizer Green">
+                    <connections>
+                        <action selector="handleGreenPress:" destination="BYZ-38-t0r" id="JzR-Jz-BY5"/>
+                        <outlet property="delegate" destination="dKK-aw-Lvb" id="IAq-e0-fNC"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.0" id="DRj-zJ-G5v" userLabel="Gesture Recognizer Red">
+                    <connections>
+                        <action selector="handleRedPress:" destination="BYZ-38-t0r" id="gRm-Jr-qRJ"/>
+                        <outlet property="delegate" destination="Nvh-q3-Ixh" id="eNo-Sm-j94"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.0" id="Bsv-Dp-V9E" userLabel="Gesture Recognizer Yellow">
+                    <connections>
+                        <action selector="handleYellowPress:" destination="BYZ-38-t0r" id="d4L-he-0Yi"/>
+                        <outlet property="delegate" destination="wox-XP-8bW" id="vGa-Xj-MgE"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.0" id="Og1-ca-HXt" userLabel="Gesture Recognizer Blue">
+                    <connections>
+                        <action selector="handleBluePress:" destination="BYZ-38-t0r" id="iWj-xE-51d"/>
+                        <outlet property="delegate" destination="8ou-KC-2UP" id="gKc-Vg-ens"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="117.39130434782609"/>
+        </scene>
+    </scenes>
+</document>
