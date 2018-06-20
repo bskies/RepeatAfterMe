@@ -6,7 +6,25 @@
 //  Copyright © 2018 JesmondCamilleri. All rights reserved.
 //
 
+
+//
+//Changes made to incorporate SwiftyTimer and outlet collection
+//* existing outlets removed
+//* outlet collection added and buttons linked
+//* tags changed from 0-3 to 1-4 (0 default for all objects)
+//* SwiftyTimer pod installed
+//
+//To do:
+//* replace my timer stuff with SwiftyTimer
+//* change code to use outlet collection - may need
+
+
+
+
+
+
 import UIKit
+import SwiftyTimer
 
 class Panels4VC: UIViewController {
 
@@ -27,21 +45,25 @@ class Panels4VC: UIViewController {
     var panelSequence:[Int] = []
 
     @IBOutlet weak var userMessage: UILabel!
-    @IBOutlet weak var greenPanel: UIButton!
-    @IBOutlet weak var redPanel: UIButton!
-    @IBOutlet weak var yellowPanel: UIButton!
-    @IBOutlet weak var bluePanel: UIButton!
+//    @IBOutlet weak var greenPanel: UIButton!
+//    @IBOutlet weak var redPanel: UIButton!
+//    @IBOutlet weak var yellowPanel: UIButton!
+//    @IBOutlet weak var bluePanel: UIButton!
+    
+    @IBOutlet var panels: [UIButton]!
     
     @IBOutlet weak var startButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         prepareForStart()
     }
 
     	
     @objc func playSequence () {
+        
+        print("panelSequence 01 - currentNoteItemPlayed = \(currentNoteItemPlayed)")
         currentNote = panelSequence[currentNoteItemPlayed]
         lightPanel(currentNote)
 
@@ -63,6 +85,7 @@ class Panels4VC: UIViewController {
         flashDuration = 0.2
         flashRepeatsOnError = 8
         flashCount = 0
+        print("panelSequence 02 - currentNoteItemInput = \(currentNoteItemInput)")
         flashPanel = panelSequence[currentNoteItemInput]
 
         startTimer.invalidate()
@@ -88,15 +111,20 @@ class Panels4VC: UIViewController {
     }
     
     func lightPanel (_ panelNumber: Int) {
-        if panelNumber == 0 {
-            greenPanel.alpha = 1.0
-        } else if panelNumber == 1 {
-            redPanel.alpha = 1.0
-        } else if panelNumber == 2 {
-            yellowPanel.alpha = 1.0
-        } else if panelNumber == 3 {
-            bluePanel.alpha = 1.0
-        }
+//        panelNumber has been 4 - could cause error
+        print("panels 01 - panelNumber = \(panelNumber)")
+
+        panels[panelNumber].alpha = 1.0
+
+//        if panelNumber == 0 {
+//            greenPanel.alpha = 1.0
+//        } else if panelNumber == 1 {
+//            redPanel.alpha = 1.0
+//        } else if panelNumber == 2 {
+//            yellowPanel.alpha = 1.0
+//        } else if panelNumber == 3 {
+//            bluePanel.alpha = 1.0
+//        }
     }
     
     func wrongPanelPressed (number panelNumber: Int, for duration: Double, repeats: Int) {
@@ -112,10 +140,14 @@ class Panels4VC: UIViewController {
     }
     
     @objc func dimPanels () {
-        greenPanel.alpha = panelDimAlpha
-        redPanel.alpha = panelDimAlpha
-        yellowPanel.alpha = panelDimAlpha
-        bluePanel.alpha = panelDimAlpha
+        for panel in panels {
+            panel.alpha = panelDimAlpha
+        }
+        
+//        greenPanel.alpha = panelDimAlpha
+//        redPanel.alpha = panelDimAlpha
+//        yellowPanel.alpha = panelDimAlpha
+//        bluePanel.alpha = panelDimAlpha
     }
     
     @objc func gameOver () {
@@ -127,6 +159,8 @@ class Panels4VC: UIViewController {
     func processPressedPanel (panel: Int) {
         print("Processing panel \(panel)")
         
+        print("panelSequence 03 - currentNoteItemInput = \(currentNoteItemInput)")
+
         if panel == panelSequence[currentNoteItemInput] {
             print("Correct panel pressed, wanted \(panelSequence[currentNoteItemInput]) pressed \(panel)")
             currentNoteItemInput += 1
@@ -136,23 +170,32 @@ class Panels4VC: UIViewController {
                 startNextRound()
             }
         } else {
+            print("panelSequence 04 - currentNoteItemInput = \(currentNoteItemInput)")
+
             print("INCORRECT panel pressed, wanted \(panelSequence[currentNoteItemInput]) pressed \(panel)")
             wrongPanelPressed(number: panelSequence[currentNoteItemInput], for: 0.2, repeats: 8)
         }
     }
     
     func prepareForInput () {
-        greenPanel.isEnabled = true
-        redPanel.isEnabled = true
-        yellowPanel.isEnabled = true
-        bluePanel.isEnabled = true
+        for panel in panels {
+            panel.isEnabled = true
+        }
+//        greenPanel.isEnabled = true
+//        redPanel.isEnabled = true
+//        yellowPanel.isEnabled = true
+//        bluePanel.isEnabled = true
     }
     
     func lockPanels () {
-        greenPanel.isEnabled = false
-        redPanel.isEnabled = false
-        yellowPanel.isEnabled = false
-        bluePanel.isEnabled = false
+        for panel in panels {
+            panel.isEnabled = false
+        }
+        
+//        greenPanel.isEnabled = false
+//        redPanel.isEnabled = false
+//        yellowPanel.isEnabled = false
+//        bluePanel.isEnabled = false
     }
     
     func prepareForStart () {
@@ -166,7 +209,11 @@ class Panels4VC: UIViewController {
         currentNoteItemPlayed = 0
 
         lockPanels()
+//        panelSequence += [Int(arc4random_uniform(numberOfPanels)) + 1]
         panelSequence += [Int(arc4random_uniform(numberOfPanels))]
+
+        print(panelSequence)
+        
         noteCount = panelSequence.count
         currentNoteItemInput = 0
 

@@ -1,23 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Avenir.ttc">
-            <string>Avenir-Heavy</string>
-        </array>
-        <array key="AvenirNext.ttc">
-            <string>AvenirNext-DemiBold</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Panels4VC-->
         <scene sceneID="tne-QT-ifu">
@@ -33,15 +25,15 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Obu-od-kLj">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="347"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKK-aw-Lvb">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKK-aw-Lvb">
                                                 <rect key="frame" x="0.0" y="0.0" width="157.66666666666666" height="347"/>
-                                                <color key="backgroundColor" red="0.0" green="0.77191840277777779" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.0" green="0.77254901960784317" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <gestureRecognizers/>
                                                 <connections>
                                                     <outletCollection property="gestureRecognizers" destination="Bcx-aO-Ryx" appends="YES" id="nPj-K1-Mx3"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nvh-q3-Ixh">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nvh-q3-Ixh">
                                                 <rect key="frame" x="177.66666666666663" y="0.0" width="157.33333333333337" height="347"/>
                                                 <color key="backgroundColor" red="0.77897135416666663" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <gestureRecognizers/>
@@ -62,7 +54,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cp8-jX-gKS">
                                         <rect key="frame" x="0.0" y="367" width="335" height="347"/>
                                         <subviews>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wox-XP-8bW">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wox-XP-8bW">
                                                 <rect key="frame" x="0.0" y="0.0" width="157.66666666666666" height="347"/>
                                                 <color key="backgroundColor" red="0.82476128472222221" green="0.79142252604166663" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <gestureRecognizers/>
@@ -70,7 +62,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="Bsv-Dp-V9E" appends="YES" id="RKH-sV-Ql5"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ou-KC-2UP">
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ou-KC-2UP">
                                                 <rect key="frame" x="177.66666666666663" y="0.0" width="157.33333333333337" height="347"/>
                                                 <color key="backgroundColor" red="0.0" green="0.13145616319444445" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <gestureRecognizers/>
@@ -136,12 +128,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="bluePanel" destination="8ou-KC-2UP" id="hEa-bK-Sao"/>
-                        <outlet property="greenPanel" destination="dKK-aw-Lvb" id="upE-61-jtt"/>
-                        <outlet property="redPanel" destination="Nvh-q3-Ixh" id="cHB-B3-azA"/>
                         <outlet property="startButton" destination="RTQ-Rx-ew4" id="SXg-X6-Jga"/>
                         <outlet property="userMessage" destination="ISc-0s-GBH" id="uS3-ht-SQg"/>
-                        <outlet property="yellowPanel" destination="wox-XP-8bW" id="Uel-3B-YXr"/>
+                        <outletCollection property="panels" destination="dKK-aw-Lvb" collectionClass="NSMutableArray" id="NBB-a5-ush"/>
+                        <outletCollection property="panels" destination="Nvh-q3-Ixh" collectionClass="NSMutableArray" id="aYW-rP-PZi"/>
+                        <outletCollection property="panels" destination="wox-XP-8bW" collectionClass="NSMutableArray" id="kHB-KR-6RW"/>
+                        <outletCollection property="panels" destination="8ou-KC-2UP" collectionClass="NSMutableArray" id="5Hv-Ub-5bO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -166,7 +158,7 @@
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.0" id="Og1-ca-HXt" userLabel="Gesture Recognizer Blue">
                     <connections>
                         <action selector="handleBluePress:" destination="BYZ-38-t0r" id="iWj-xE-51d"/>
-                        <outlet property="delegate" destination="8ou-KC-2UP" id="gKc-Vg-ens"/>
+                        <outlet property="delegate" destination="8ou-KC-2UP" id="Dpj-km-NHb"/>
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
