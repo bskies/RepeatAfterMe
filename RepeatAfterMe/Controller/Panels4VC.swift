@@ -19,10 +19,6 @@
 //* change code to use outlet collection - may need
 
 
-
-
-
-
 import UIKit
 import SwiftyTimer
 
@@ -45,10 +41,6 @@ class Panels4VC: UIViewController {
     var panelSequence:[Int] = []
 
     @IBOutlet weak var userMessage: UILabel!
-//    @IBOutlet weak var greenPanel: UIButton!
-//    @IBOutlet weak var redPanel: UIButton!
-//    @IBOutlet weak var yellowPanel: UIButton!
-//    @IBOutlet weak var bluePanel: UIButton!
     
     @IBOutlet var panels: [UIButton]!
     
@@ -62,8 +54,6 @@ class Panels4VC: UIViewController {
 
     	
     @objc func playSequence () {
-        
-        print("panelSequence 01 - currentNoteItemPlayed = \(currentNoteItemPlayed)")
         currentNote = panelSequence[currentNoteItemPlayed]
         lightPanel(currentNote)
 
@@ -85,12 +75,10 @@ class Panels4VC: UIViewController {
         flashDuration = 0.2
         flashRepeatsOnError = 8
         flashCount = 0
-        print("panelSequence 02 - currentNoteItemInput = \(currentNoteItemInput)")
         flashPanel = panelSequence[currentNoteItemInput]
 
         startTimer.invalidate()
         moveTimer.invalidate()
-        
         
         lockPanels()
         
@@ -111,20 +99,7 @@ class Panels4VC: UIViewController {
     }
     
     func lightPanel (_ panelNumber: Int) {
-//        panelNumber has been 4 - could cause error
-        print("panels 01 - panelNumber = \(panelNumber)")
-
         panels[panelNumber].alpha = 1.0
-
-//        if panelNumber == 0 {
-//            greenPanel.alpha = 1.0
-//        } else if panelNumber == 1 {
-//            redPanel.alpha = 1.0
-//        } else if panelNumber == 2 {
-//            yellowPanel.alpha = 1.0
-//        } else if panelNumber == 3 {
-//            bluePanel.alpha = 1.0
-//        }
     }
     
     func wrongPanelPressed (number panelNumber: Int, for duration: Double, repeats: Int) {
@@ -143,11 +118,6 @@ class Panels4VC: UIViewController {
         for panel in panels {
             panel.alpha = panelDimAlpha
         }
-        
-//        greenPanel.alpha = panelDimAlpha
-//        redPanel.alpha = panelDimAlpha
-//        yellowPanel.alpha = panelDimAlpha
-//        bluePanel.alpha = panelDimAlpha
     }
     
     @objc func gameOver () {
@@ -159,8 +129,6 @@ class Panels4VC: UIViewController {
     func processPressedPanel (panel: Int) {
         print("Processing panel \(panel)")
         
-        print("panelSequence 03 - currentNoteItemInput = \(currentNoteItemInput)")
-
         if panel == panelSequence[currentNoteItemInput] {
             print("Correct panel pressed, wanted \(panelSequence[currentNoteItemInput]) pressed \(panel)")
             currentNoteItemInput += 1
@@ -170,8 +138,6 @@ class Panels4VC: UIViewController {
                 startNextRound()
             }
         } else {
-            print("panelSequence 04 - currentNoteItemInput = \(currentNoteItemInput)")
-
             print("INCORRECT panel pressed, wanted \(panelSequence[currentNoteItemInput]) pressed \(panel)")
             wrongPanelPressed(number: panelSequence[currentNoteItemInput], for: 0.2, repeats: 8)
         }
@@ -181,21 +147,12 @@ class Panels4VC: UIViewController {
         for panel in panels {
             panel.isEnabled = true
         }
-//        greenPanel.isEnabled = true
-//        redPanel.isEnabled = true
-//        yellowPanel.isEnabled = true
-//        bluePanel.isEnabled = true
     }
     
     func lockPanels () {
         for panel in panels {
             panel.isEnabled = false
         }
-        
-//        greenPanel.isEnabled = false
-//        redPanel.isEnabled = false
-//        yellowPanel.isEnabled = false
-//        bluePanel.isEnabled = false
     }
     
     func prepareForStart () {
@@ -209,7 +166,6 @@ class Panels4VC: UIViewController {
         currentNoteItemPlayed = 0
 
         lockPanels()
-//        panelSequence += [Int(arc4random_uniform(numberOfPanels)) + 1]
         panelSequence += [Int(arc4random_uniform(numberOfPanels))]
 
         print(panelSequence)
@@ -262,4 +218,6 @@ class Panels4VC: UIViewController {
     @IBAction func handleBluePress(_ sender: UILongPressGestureRecognizer) {
         handlePressedPanel(sender, panelNumber: 3)
     }
+    
+    
 }
