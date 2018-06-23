@@ -44,17 +44,21 @@ class Panels4VC: UIViewController {
 
     @IBOutlet weak var userMessage: UILabel!
     
-    @IBOutlet var panels: [UIButton]!
-    
+//    @IBOutlet var panels: [UIButton]!
+    @IBOutlet var panels: [FlashingPanel]!
+
     @IBOutlet weak var startButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+//        let redPanel = FlashingPanel ()
+
+        panels[0].flashPanel(numberOfTimes: 50, everySecs: 0.1, lightUpForSecs: 0.05)
+//        panels[0].flashPanel(numberOfTimes: 5)
         prepareForStart()
     }
 
-    	
     @objc func gameOver () {
         userMessage.text = "Game Over. Score: \(panelSequence.count - 1)"
         userMessage.isHidden = false
@@ -85,7 +89,7 @@ class Panels4VC: UIViewController {
     
     @objc func dimPanels () {
         for panel in panels {
-            panel.alpha = panelDimAlpha
+            panel.alpha = panelDimAlphaValue
         }
     }
     
@@ -109,7 +113,7 @@ class Panels4VC: UIViewController {
         } else if sender.state == UIGestureRecognizerState.ended {
             print("Panel released - \(panelNumber)")
             moveTimer.invalidate()
-            moveTimer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(missedMove), userInfo: nil, repeats: false)
+            moveTimer = Timer.scheduledTimer(timeInterval: allowedDelay, target: self, selector: #selector(missedMove), userInfo: nil, repeats: false)
             processPressedPanel(panel: panelNumber)
             dimPanels()
         }
@@ -130,22 +134,6 @@ class Panels4VC: UIViewController {
 
         lightTimer = Timer.scheduledTimer(timeInterval: flashDuration, target: self, selector: #selector(flashLight), userInfo: nil, repeats: true)
     }
-    
-//    @objc func missedMove () {
-//        print ("missedMove initiated")
-//
-//        flashDuration = 0.2
-//        flashRepeatsOnError = 8
-//        flashCount = 0
-//        flashPanel = panelSequence[currentNoteItemInput]
-//
-//        startTimer.invalidate()
-//        moveTimer.invalidate()
-//
-//        lockPanels()
-//
-//        lightTimer = Timer.scheduledTimer(timeInterval: flashDuration, target: self, selector: #selector(flashLight), userInfo: nil, repeats: true)
-//    }
     
     @objc func flashLight () {
         lockPanels()
@@ -181,10 +169,6 @@ class Panels4VC: UIViewController {
     
     func processNextRound () {
         startNextRound()
-        
-//        Timer.after(2.seconds) {
-//            self.missedMove()
-//        }
     }
     
     func startNextRound () {
@@ -202,52 +186,6 @@ class Panels4VC: UIViewController {
         
         //        MARK: TODO: use SwiftyTimer
         startTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(playSequence), userInfo: nil, repeats: true)
-        
-//        Timer.every(TimeInterval(noteInterval)) { (timer: Timer) in
-//            self.currentNote = self.panelSequence[self.currentNoteItemPlayed]
-//            self.lightPanel(self.currentNote)
-//
-//            Timer.after(0.5.seconds, self.dimPanels)
-//
-//            self.currentNoteItemPlayed += 1
-//            if self.currentNoteItemPlayed >= self.noteCount {
-//                timer.invalidate()
-//                print ("Sequence done")
-//
-////                self.moveTimer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.missedMove), userInfo: nil, repeats: false)
-////                self.prepareForInput()
-//            }
-//
-//            self.offTimer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.dimPanels), userInfo: nil, repeats: false)
-//
-//
-////            let buttonChosen = self.allButtons[self.sequence[self.count]]
-//
-////            buttonChosen.alpha = 1
-////
-////            Timer.after(0.5.seconds) {
-////                buttonChosen.alpha = 0.3
-////            }
-////
-////            self.count += 1
-////            if self.count >= self.sequence.count {
-////                timer.invalidate()
-////            }
-//        }
-        
-//        currentNote = panelSequence[currentNoteItemPlayed]
-//        lightPanel(currentNote)
-//
-//        currentNoteItemPlayed += 1
-//        if currentNoteItemPlayed >= noteCount {
-//            startTimer.invalidate()
-//            print ("Sequence done")
-//
-//            moveTimer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(missedMove), userInfo: nil, repeats: false)
-//            prepareForInput()
-//        }
-//
-//        offTimer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(dimPanels), userInfo: nil, repeats: false)
     }
     
     func startGame () {
@@ -268,7 +206,7 @@ class Panels4VC: UIViewController {
             startTimer.invalidate()
             print ("Sequence done")
 
-            moveTimer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(missedMove), userInfo: nil, repeats: false)
+            moveTimer = Timer.scheduledTimer(timeInterval: allowedDelay, target: self, selector: #selector(missedMove), userInfo: nil, repeats: false)
             prepareForInput()
         }
 

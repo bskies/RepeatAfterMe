@@ -25,7 +25,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Obu-od-kLj">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="347"/>
                                         <subviews>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKK-aw-Lvb">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKK-aw-Lvb" customClass="FlashingPanel" customModule="RepeatAfterMe" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="157.66666666666666" height="347"/>
                                                 <color key="backgroundColor" red="0.0" green="0.77254901960784317" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <gestureRecognizers/>
@@ -33,7 +33,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="Bcx-aO-Ryx" appends="YES" id="nPj-K1-Mx3"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nvh-q3-Ixh">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nvh-q3-Ixh" customClass="FlashingPanel" customModule="RepeatAfterMe" customModuleProvider="target">
                                                 <rect key="frame" x="177.66666666666663" y="0.0" width="157.33333333333337" height="347"/>
                                                 <color key="backgroundColor" red="0.77897135416666663" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <gestureRecognizers/>
@@ -54,7 +54,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cp8-jX-gKS">
                                         <rect key="frame" x="0.0" y="367" width="335" height="347"/>
                                         <subviews>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wox-XP-8bW">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wox-XP-8bW" customClass="FlashingPanel" customModule="RepeatAfterMe" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="157.66666666666666" height="347"/>
                                                 <color key="backgroundColor" red="0.82476128472222221" green="0.79142252604166663" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <gestureRecognizers/>
@@ -62,7 +62,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="Bsv-Dp-V9E" appends="YES" id="RKH-sV-Ql5"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ou-KC-2UP">
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ou-KC-2UP" customClass="FlashingPanel" customModule="RepeatAfterMe" customModuleProvider="target">
                                                 <rect key="frame" x="177.66666666666663" y="0.0" width="157.33333333333337" height="347"/>
                                                 <color key="backgroundColor" red="0.0" green="0.13145616319444445" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <gestureRecognizers/>
