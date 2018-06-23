@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1156F4F32089E17400F2372E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1156F4F22089E17400F2372E /* Constants.swift */; };
-		11668CC220DC36DE000EDFBB /* FlashingPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11668CC120DC36DE000EDFBB /* FlashingPanel.swift */; };
+		11668CC220DC36DE000EDFBB /* GamePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11668CC120DC36DE000EDFBB /* GamePanel.swift */; };
 		11F97764205CB07F00057241 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F97763205CB07F00057241 /* AppDelegate.swift */; };
 		11F97766205CB07F00057241 /* Panels4VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F97765205CB07F00057241 /* Panels4VC.swift */; };
 		11F97769205CB07F00057241 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11F97767205CB07F00057241 /* Main.storyboard */; };
@@ -19,7 +19,7 @@
 
 /* Begin PBXFileReference section */
 		1156F4F22089E17400F2372E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		11668CC120DC36DE000EDFBB /* FlashingPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashingPanel.swift; sourceTree = "<group>"; };
+		11668CC120DC36DE000EDFBB /* GamePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePanel.swift; sourceTree = "<group>"; };
 		11F97760205CB07F00057241 /* RepeatAfterMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RepeatAfterMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11F97763205CB07F00057241 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11F97765205CB07F00057241 /* Panels4VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Panels4VC.swift; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 		11668CC020DC36BC000EDFBB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				11668CC120DC36DE000EDFBB /* FlashingPanel.swift */,
+				11668CC120DC36DE000EDFBB /* GamePanel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -233,7 +233,7 @@
 			files = (
 				11F97766205CB07F00057241 /* Panels4VC.swift in Sources */,
 				11F97764205CB07F00057241 /* AppDelegate.swift in Sources */,
-				11668CC220DC36DE000EDFBB /* FlashingPanel.swift in Sources */,
+				11668CC220DC36DE000EDFBB /* GamePanel.swift in Sources */,
 				1156F4F32089E17400F2372E /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

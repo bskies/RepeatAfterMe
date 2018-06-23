@@ -8,10 +8,10 @@
 
 import UIKit
 
-class FlashingPanel: UIButton {
+class GamePanel: UIButton {
     let panelDimAlphaValue = CGFloat(0.3)
 
-    func flashPanel (numberOfTimes: Int, everySecs: Double, lightUpForSecs: Double) {
+    func flash (numberOfTimes: Int, everySecs: Double, lightUpForSecs: Double) {
         var timesFlashed = 0
         
         Timer.every(everySecs) { (timer: Timer) in
@@ -30,19 +30,19 @@ class FlashingPanel: UIButton {
         }
     }
 
-    func lightPanel () {
+    func light () {
         self.alpha = 1
     }
 
-    func dimPanel () {
+    func dim () {
         self.alpha = panelDimAlphaValue
     }
 
-    func enablePanel () {
+    func enable () {
         self.isEnabled = true
     }
 
-    func disablePanel () {
+    func disable () {
         self.isEnabled = false
     }
 }

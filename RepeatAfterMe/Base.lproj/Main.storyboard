@@ -25,7 +25,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Obu-od-kLj">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="347"/>
                                         <subviews>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKK-aw-Lvb" customClass="FlashingPanel" customModule="RepeatAfterMe" customModuleProvider="target">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKK-aw-Lvb" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="157.66666666666666" height="347"/>
                                                 <color key="backgroundColor" red="0.0" green="0.77254901960784317" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <gestureRecognizers/>
@@ -33,7 +33,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="Bcx-aO-Ryx" appends="YES" id="nPj-K1-Mx3"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nvh-q3-Ixh" customClass="FlashingPanel" customModule="RepeatAfterMe" customModuleProvider="target">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nvh-q3-Ixh" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
                                                 <rect key="frame" x="177.66666666666663" y="0.0" width="157.33333333333337" height="347"/>
                                                 <color key="backgroundColor" red="0.77897135416666663" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <gestureRecognizers/>
@@ -54,7 +54,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cp8-jX-gKS">
                                         <rect key="frame" x="0.0" y="367" width="335" height="347"/>
                                         <subviews>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wox-XP-8bW" customClass="FlashingPanel" customModule="RepeatAfterMe" customModuleProvider="target">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wox-XP-8bW" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="157.66666666666666" height="347"/>
                                                 <color key="backgroundColor" red="0.82476128472222221" green="0.79142252604166663" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <gestureRecognizers/>
@@ -62,7 +62,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="Bsv-Dp-V9E" appends="YES" id="RKH-sV-Ql5"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ou-KC-2UP" customClass="FlashingPanel" customModule="RepeatAfterMe" customModuleProvider="target">
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ou-KC-2UP" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
                                                 <rect key="frame" x="177.66666666666663" y="0.0" width="157.33333333333337" height="347"/>
                                                 <color key="backgroundColor" red="0.0" green="0.13145616319444445" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <gestureRecognizers/>
@@ -104,9 +104,6 @@
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Over.  Score: " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ISc-0s-GBH" userLabel="Game Over. Score:">
                                 <rect key="frame" x="68.666666666666686" y="117" width="238" height="110.33333333333331"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="238" id="Xnz-oB-Dsq"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -116,12 +113,13 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ISc-0s-GBH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="68.329999999999998" id="50l-XJ-lc8"/>
                             <constraint firstItem="Jqy-S2-k7S" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="80B-Ib-sHi"/>
                             <constraint firstItem="ISc-0s-GBH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="73" id="8Lu-5X-1b7"/>
                             <constraint firstItem="RTQ-Rx-ew4" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9aD-9v-LGt"/>
-                            <constraint firstItem="ISc-0s-GBH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WzV-Tl-m6p"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jqy-S2-k7S" secondAttribute="trailing" constant="20" id="ZCf-1f-V2E"/>
                             <constraint firstItem="Jqy-S2-k7S" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="h2g-UG-GHr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ISc-0s-GBH" secondAttribute="trailing" constant="68.329999999999998" id="pCl-Bz-CN3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Jqy-S2-k7S" secondAttribute="bottom" constant="20" id="sIN-Bh-H1n"/>
                             <constraint firstItem="RTQ-Rx-ew4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="trg-nQ-8AN"/>
                         </constraints>
