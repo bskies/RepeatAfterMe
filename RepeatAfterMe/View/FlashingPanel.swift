@@ -9,6 +9,8 @@
 import UIKit
 
 class FlashingPanel: UIButton {
+    let panelDimAlphaValue = CGFloat(0.3)
+
     func flashPanel (numberOfTimes: Int, everySecs: Double, lightUpForSecs: Double) {
         var timesFlashed = 0
         
@@ -18,27 +20,29 @@ class FlashingPanel: UIButton {
 
             Timer.after(lightUpForSecs) {
 //            Timer.after(0.5.seconds) {
-                self.alpha = 0.3
+                self.alpha = self.panelDimAlphaValue
             }
 
             if timesFlashed >= numberOfTimes {
                 timer.invalidate()
             }
-//        Timer.every(intervalSeconds) { (timer: Timer) in
 
-//            let buttonChosen = self.allButtons[self.sequence[self.count]]
-            
-//            buttonChosen.alpha = 1
-//
-//            Timer.after(0.5.seconds) {
-//                buttonChosen.alpha = 0.3
-//            }
-            
-//            self.count += 1
-//            if self.count >= self.sequence.count {
-//                timer.invalidate()
-//            }
         }
     }
 
+    func lightPanel () {
+        self.alpha = 1
+    }
+
+    func dimPanel () {
+        self.alpha = panelDimAlphaValue
+    }
+
+    func enablePanel () {
+        self.isEnabled = true
+    }
+
+    func disablePanel () {
+        self.isEnabled = false
+    }
 }

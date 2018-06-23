@@ -54,7 +54,7 @@ class Panels4VC: UIViewController {
 
 //        let redPanel = FlashingPanel ()
 
-        panels[0].flashPanel(numberOfTimes: 50, everySecs: 0.1, lightUpForSecs: 0.05)
+        panels[1].flashPanel(numberOfTimes: 50, everySecs: 0.1, lightUpForSecs: 0.05)
 //        panels[0].flashPanel(numberOfTimes: 5)
         prepareForStart()
     }
@@ -83,33 +83,47 @@ class Panels4VC: UIViewController {
     }
     
     //    MARK: Panel functions
-    func lightPanel (_ panelNumber: Int) {
-        panels[panelNumber].alpha = 1.0
-    }
+//    func lightPanel (_ panelNumber: Int) {
+//        panels[panelNumber].alpha = 1.0
+//    }
     
     @objc func dimPanels () {
         for panel in panels {
-            panel.alpha = panelDimAlphaValue
+            panel.dimPanel()
+//            panel.alpha = panelDimAlphaValue
         }
     }
     
     func lockPanels () {
         for panel in panels {
-            panel.isEnabled = false
+            panel.disablePanel()
         }
     }
     
     func prepareForInput () {
         for panel in panels {
-            panel.isEnabled = true
+            panel.enablePanel()
         }
     }
+    
+//    func lockPanels () {
+//        for panel in panels {
+//            panel.isEnabled = false
+//        }
+//    }
+//
+//    func prepareForInput () {
+//        for panel in panels {
+//            panel.isEnabled = true
+//        }
+//    }
     
     func handlePressedPanel(_ sender: UILongPressGestureRecognizer, panelNumber: Int) {
         if sender.state == UIGestureRecognizerState.began
         {
             print("Panel pressed - \(panelNumber)")
-            lightPanel(panelNumber)
+            panels[panelNumber].lightPanel()
+//            lightPanel(panelNumber)
         } else if sender.state == UIGestureRecognizerState.ended {
             print("Panel released - \(panelNumber)")
             moveTimer.invalidate()
@@ -132,21 +146,22 @@ class Panels4VC: UIViewController {
 
         lockPanels()
 
-        lightTimer = Timer.scheduledTimer(timeInterval: flashDuration, target: self, selector: #selector(flashLight), userInfo: nil, repeats: true)
+        panels[flashPanel].flashPanel(numberOfTimes: 8, everySecs: flashDuration * 2, lightUpForSecs: flashDuration)
+//        lightTimer = Timer.scheduledTimer(timeInterval: flashDuration, target: self, selector: #selector(flashLight), userInfo: nil, repeats: true)
     }
     
-    @objc func flashLight () {
-        lockPanels()
-        if flashCount >= flashRepeatsOnError {
-            lightTimer.invalidate()
-            gameOver()
-        } else {
-            lightPanel(flashPanel)
-            flashCount += 1
-        }
-        
-        offTimer = Timer.scheduledTimer(timeInterval: flashDuration / 2, target: self, selector: #selector(dimPanels), userInfo: nil, repeats: false)
-    }
+//    @objc func flashLight () {
+//        lockPanels()
+//        if flashCount >= flashRepeatsOnError {
+//            lightTimer.invalidate()
+//            gameOver()
+//        } else {
+//            lightPanel(flashPanel)
+//            flashCount += 1
+//        }
+//
+//        offTimer = Timer.scheduledTimer(timeInterval: flashDuration / 2, target: self, selector: #selector(dimPanels), userInfo: nil, repeats: false)
+//    }
     
     func wrongPanelPressed (number panelNumber: Int, for duration: Double, repeats: Int) {
         lockPanels()
@@ -157,7 +172,13 @@ class Panels4VC: UIViewController {
         startTimer.invalidate()
         moveTimer.invalidate()
         
-        lightTimer = Timer.scheduledTimer(timeInterval: flashDuration, target: self, selector: #selector(flashLight), userInfo: nil, repeats: true)
+        
+        panels[panelNumber].flashPanel(numberOfTimes: 8, everySecs: flashDuration * 2, lightUpForSecs: flashDuration)
+        //        lightTimer = Timer.scheduledTimer(timeInterval: flashDuration, target: self, selector: #selector(flashLight), userInfo: nil, repeats: true)
+
+        
+        
+//        lightTimer = Timer.scheduledTimer(timeInterval: flashDuration, target: self, selector: #selector(flashLight), userInfo: nil, repeats: true)
     }
     
 //    MARK: Game functions
@@ -199,7 +220,8 @@ class Panels4VC: UIViewController {
 
     @objc func playSequence () {
         currentNote = panelSequence[currentNoteItemPlayed]
-        lightPanel(currentNote)
+        panels[currentNote].lightPanel()
+//        lightPanel(currentNote)
 
         currentNoteItemPlayed += 1
         if currentNoteItemPlayed >= noteCount {
@@ -218,17 +240,21 @@ class Panels4VC: UIViewController {
     }
     
     @IBAction func handleGreenPress (_ sender: UILongPressGestureRecognizer) {
+        print("Green pressed")
         handlePressedPanel(sender, panelNumber: 0)
     }
     
     @IBAction func handleRedPress(_ sender: UILongPressGestureRecognizer) {
+        print("Red pressed")
         handlePressedPanel(sender, panelNumber: 1)
     }
     
     @IBAction func handleYellowPress(_ sender: UILongPressGestureRecognizer) {
+        print("Yellow pressed")
         handlePressedPanel(sender, panelNumber: 2)
     }
     @IBAction func handleBluePress(_ sender: UILongPressGestureRecognizer) {
+        print("Blue pressed")
         handlePressedPanel(sender, panelNumber: 3)
     }
 }
