@@ -13,3 +13,8 @@ let numberOfPanels = UInt32(4)
 let allowedDelay = Double(2.0)
 let numberFlashesOnFail = 8
 let flashDuration = 0.1
+
+// Green, Red, Yellow Blue
+let dimColours = ["033C04","3F0902","423E07","01164C"]
+let brightColours = ["1FC923","A71A11","AFA623","0D3EC9"]
+

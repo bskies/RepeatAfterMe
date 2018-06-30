@@ -116,6 +116,8 @@ class Panels4VC: UIViewController {
     @objc func dimPanels () {
         for panel in panels {
             panel.dim()
+            panel.setPanelColour(colourHex: dimColours[panel.tag])
+//            panel.backgroundColor( dimColours[panel.tag]
         }
     }
     

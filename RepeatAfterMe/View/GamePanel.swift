@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 class GamePanel: UIButton {
     let panelDimAlphaValue = CGFloat(0.3)
@@ -36,6 +37,10 @@ class GamePanel: UIButton {
 
     func dim () {
         self.alpha = panelDimAlphaValue
+    }
+    
+    func setPanelColour (colourHex: String) {
+        self.backgroundColor = UIColor(hexString: colourHex)
     }
 
     func enable () {

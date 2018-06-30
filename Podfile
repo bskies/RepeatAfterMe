@@ -7,4 +7,5 @@ target 'RepeatAfterMe' do
   # Pods for RepeatAfterMe
   pod 'SwiftyTimer', '~> 2.0'
   pod 'RealmSwift'
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
 end
