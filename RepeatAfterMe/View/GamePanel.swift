@@ -45,4 +45,8 @@ class GamePanel: UIButton {
     func disable () {
         self.isEnabled = false
     }
+    
+    func setLabel () {
+        self.setTitle("ABCWWW", for: .normal)
+    }
 }

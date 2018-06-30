@@ -25,10 +25,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Obu-od-kLj">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="347"/>
                                         <subviews>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKK-aw-Lvb" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="dKK-aw-Lvb" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="157.66666666666666" height="347"/>
                                                 <color key="backgroundColor" red="0.0" green="0.77254901960784317" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <gestureRecognizers/>
+                                                <state key="normal">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <outletCollection property="gestureRecognizers" destination="Bcx-aO-Ryx" appends="YES" id="nPj-K1-Mx3"/>
                                                 </connections>
@@ -37,6 +40,9 @@
                                                 <rect key="frame" x="177.66666666666663" y="0.0" width="157.33333333333337" height="347"/>
                                                 <color key="backgroundColor" red="0.77897135416666663" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <gestureRecognizers/>
+                                                <state key="normal" title="ZZZ">
+                                                    <color key="titleColor" red="0.91715594844704085" green="1" blue="0.88500886574843873" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <outletCollection property="gestureRecognizers" destination="DRj-zJ-G5v" appends="YES" id="uqA-B3-Gfs"/>
                                                 </connections>
@@ -102,9 +108,11 @@
                                     <action selector="startButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="muj-XV-LC6"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Over.  Score: " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ISc-0s-GBH" userLabel="Game Over. Score:">
-                                <rect key="frame" x="68.666666666666686" y="117" width="238" height="110.33333333333331"/>
-                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="40"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ISc-0s-GBH" userLabel="Game Over. Score:">
+                                <rect key="frame" x="68.666666666666686" y="117" width="238" height="111.66666666666669"/>
+                                <string key="text">Game Over.  Correct Panels: 
+Score: </string>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="27"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>

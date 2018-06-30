@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1122196420DF9AC500ECF5F8 /* HighScores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1122196320DF9AC500ECF5F8 /* HighScores.swift */; };
 		1156F4F32089E17400F2372E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1156F4F22089E17400F2372E /* Constants.swift */; };
 		11668CC220DC36DE000EDFBB /* GamePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11668CC120DC36DE000EDFBB /* GamePanel.swift */; };
 		11F97764205CB07F00057241 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F97763205CB07F00057241 /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1122196320DF9AC500ECF5F8 /* HighScores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScores.swift; sourceTree = "<group>"; };
 		1156F4F22089E17400F2372E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		11668CC120DC36DE000EDFBB /* GamePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePanel.swift; sourceTree = "<group>"; };
 		11F97760205CB07F00057241 /* RepeatAfterMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RepeatAfterMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +46,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1122196220DF9AA300ECF5F8 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				1122196320DF9AC500ECF5F8 /* HighScores.swift */,
+			);
+			path = "Data Model";
+			sourceTree = "<group>";
+		};
 		1156F4F12089E15C00F2372E /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +91,7 @@
 		11F97762205CB07F00057241 /* RepeatAfterMe */ = {
 			isa = PBXGroup;
 			children = (
+				1122196220DF9AA300ECF5F8 /* Data Model */,
 				11668CC020DC36BC000EDFBB /* View */,
 				1156F4F12089E15C00F2372E /* Utilities */,
 				11F97775205CB5D600057241 /* Controller */,
@@ -195,10 +206,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RepeatAfterMe/Pods-RepeatAfterMe-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyTimer/SwiftyTimer.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyTimer.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,6 +250,7 @@
 				11F97764205CB07F00057241 /* AppDelegate.swift in Sources */,
 				11668CC220DC36DE000EDFBB /* GamePanel.swift in Sources */,
 				1156F4F32089E17400F2372E /* Constants.swift in Sources */,
+				1122196420DF9AC500ECF5F8 /* HighScores.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

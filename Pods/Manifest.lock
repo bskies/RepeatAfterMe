@@ -1,16 +1,26 @@
 PODS:
+  - Realm (3.5.0):
+    - Realm/Headers (= 3.5.0)
+  - Realm/Headers (3.5.0)
+  - RealmSwift (3.5.0):
+    - Realm (= 3.5.0)
   - SwiftyTimer (2.0.0)
 
 DEPENDENCIES:
+  - RealmSwift
   - SwiftyTimer (~> 2.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Realm
+    - RealmSwift
     - SwiftyTimer
 
 SPEC CHECKSUMS:
+  Realm: 0378021c424e4e2bd6a0e63b27881e929d9b9ad1
+  RealmSwift: 3322562622fda2ad596985ead4d8d8be30cf838c
   SwiftyTimer: 2efd74b060d69ad4f1496baf5bbedbe132125fcf
 
-PODFILE CHECKSUM: bc9f963f6e68320b01b0c082e50b3882c22f7cf7
+PODFILE CHECKSUM: aedfb6ddb5aa0ec3167cc86819244c4cb3c0a76c
 
 COCOAPODS: 1.5.2
