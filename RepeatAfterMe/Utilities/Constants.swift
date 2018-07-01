@@ -8,7 +8,7 @@
 
 import UIKit
 
-//let panelDimAlphaValue = CGFloat(0.3)
+let panelDimAlphaValue = CGFloat(0.3)
 let numberOfPanels = UInt32(4)
 let allowedDelay = Double(2.0)
 let numberFlashesOnFail = 8
