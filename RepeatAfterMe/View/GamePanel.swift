@@ -14,7 +14,7 @@ class GamePanel: UIButton {
     
     init() {
         super.init(frame: .zero)
-        setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .disabled)
+//        setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .disabled)
         setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
     }
     
@@ -72,6 +72,14 @@ class GamePanel: UIButton {
         self.alpha = panelDimAlphaValue
     }
     
+    func hidePanel () {
+        self.isHidden = true
+    }
+    
+    func unhidePanel () {
+        self.isHidden = false
+    }
+    
     func setPanelColour (colourHex: String) {
         self.backgroundColor = UIColor(hexString: colourHex)
     }
@@ -84,7 +92,9 @@ class GamePanel: UIButton {
         self.isEnabled = false
     }
     
-    func setLabel () {
-        self.setTitle("ABCWWW", for: .normal)
+    func setLabel (labelText: String) {
+        self.setTitle(labelText, for: .normal)
+        self.setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
+//        self.setAttributedTitle(<#T##title: NSAttributedString?##NSAttributedString?#>, for: <#T##UIControlState#>)
     }
 }

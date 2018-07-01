@@ -25,7 +25,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Obu-od-kLj">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="303.5"/>
                                         <subviews>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="dKK-aw-Lvb" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="dKK-aw-Lvb" userLabel="GreenButton" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="157.5" height="303.5"/>
                                                 <color key="backgroundColor" red="0.0" green="0.77254901960784317" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <gestureRecognizers/>
@@ -36,10 +36,11 @@
                                                     <outletCollection property="gestureRecognizers" destination="Bcx-aO-Ryx" appends="YES" id="nPj-K1-Mx3"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Nvh-q3-Ixh" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Nvh-q3-Ixh" userLabel="RedButton" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
                                                 <rect key="frame" x="177.5" y="0.0" width="157.5" height="303.5"/>
                                                 <color key="backgroundColor" red="0.77897135416666663" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <gestureRecognizers/>
+                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                                 <state key="normal">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -60,8 +61,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cp8-jX-gKS">
                                         <rect key="frame" x="0.0" y="323.5" width="335" height="303.5"/>
                                         <subviews>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="wox-XP-8bW" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="157.5" height="303.5"/>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="wox-XP-8bW" userLabel="YellowButton" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="98.5" height="303.5"/>
                                                 <color key="backgroundColor" red="0.82476128472222221" green="0.79142252604166663" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <gestureRecognizers/>
                                                 <state key="normal">
@@ -71,15 +72,24 @@
                                                     <outletCollection property="gestureRecognizers" destination="Bsv-Dp-V9E" appends="YES" id="RKH-sV-Ql5"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="8ou-KC-2UP" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
-                                                <rect key="frame" x="177.5" y="0.0" width="157.5" height="303.5"/>
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="8ou-KC-2UP" userLabel="BlueButton" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
+                                                <rect key="frame" x="118.5" y="0.0" width="98" height="303.5"/>
                                                 <color key="backgroundColor" red="0.0" green="0.13145616319444445" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <gestureRecognizers/>
-                                                <state key="normal">
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="Og1-ca-HXt" appends="YES" id="QFq-9E-p0k"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="uNM-t8-NUx" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
+                                                <rect key="frame" x="236.5" y="0.0" width="98.5" height="303.5"/>
+                                                <color key="backgroundColor" red="0.0" green="0.1314561632" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <gestureRecognizers/>
+                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="48"/>
+                                                <state key="normal" title="START">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="Og1-ca-HXt" appends="YES" id="QFq-9E-p0k"/>
+                                                    <action selector="handleBlueInfoButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rO9-5g-8Ce"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -146,6 +156,7 @@ Score: </string>
                         <outletCollection property="panels" destination="Nvh-q3-Ixh" collectionClass="NSMutableArray" id="aYW-rP-PZi"/>
                         <outletCollection property="panels" destination="wox-XP-8bW" collectionClass="NSMutableArray" id="kHB-KR-6RW"/>
                         <outletCollection property="panels" destination="8ou-KC-2UP" collectionClass="NSMutableArray" id="5Hv-Ub-5bO"/>
+                        <outletCollection property="panels" destination="uNM-t8-NUx" collectionClass="NSMutableArray" id="w3z-w0-SGL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

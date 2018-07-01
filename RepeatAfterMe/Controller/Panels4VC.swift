@@ -40,15 +40,6 @@ class Panels4VC: UIViewController {
 
     var highScores: Results<HighScores>!
     
-//    do {
-//        let realm = try! Realm()
-//    //            try realm.write {
-//    //                realm.add(score)
-//    //            }
-//    } catch {
-//    print("Error initialising new realm: \(error)")
-//    }
-    
     var moveTimer = Timer()
     var currentNoteItemPlayed = 0
     var currentNoteItemInput = 0
@@ -60,15 +51,16 @@ class Panels4VC: UIViewController {
     var score = 0
     var scoreIncrementor = 1
 
-//    var flashRepeatsOnError = 4
-//    var flashCount = 0
     var panelToFlash = 0
     
-//    var noteInterval = 2
-
     var noteCount = 0
     var panelSequence:[Int] = []
      
+//    let yourAttributes : [NSAttributedStringKey: Any] = [
+//        NSAttributedStringKey.font : UIFont.systemFont(ofSize: 30),
+//        NSAttributedStringKey.foregroundColor : UIColor.white,
+//        //        NSAttributedStringKey.underlineStyle : NSUnderlineStyle.styleSingle.rawValue
+//    ]
 
     @IBOutlet weak var userMessage: UILabel!
     
@@ -84,10 +76,6 @@ class Panels4VC: UIViewController {
         for i in highScores {
             print("\(i.date); \(i.name); \(i.score)")
         }
-//        panels[1].setTitle("ABCEEE", for: .normal)
-//        panels[1].setTitle("ABC", for: .disabled)
-
-//        panels[1].setLabel()
         
         prepareForStart()
     }
@@ -107,17 +95,15 @@ class Panels4VC: UIViewController {
         } catch {
             print("Error initialising new realm: \(error)")
         }
-        
-        userMessage.text = "Game Over.\nRound: \(panelSequence.count)\nScore: \(score)"
-        userMessage.isHidden = false
+
+        panels[1].setLabel(labelText: "Last Game Stats:\n\nRound: \(panelSequence.count)\nScore: \(score)")
         prepareForStart()
     }
 
     func dimPanels () {
         for panel in panels {
-//            panel.dim()
+            print(panel.tag)
             panel.setPanelColour(colourHex: dimColours[panel.tag - 1])
-//            panel.backgroundColor( dimColours[panel.tag]
         }
     }
     
@@ -138,9 +124,6 @@ class Panels4VC: UIViewController {
 
         if sender.state == UIGestureRecognizerState.began
         {
-//            print("Panel pressed - \(panelNumber)")
-//            panels[panelNumber].light()
-//            panel.setPanelColour(colourHex: brightColours[panel.tag - 1])
             panel.light()
         } else if sender.state == UIGestureRecognizerState.ended {
 //            print("Panel released - \(panelNumber)")
@@ -149,14 +132,10 @@ class Panels4VC: UIViewController {
             if !gameIsOver {
                 moveTimer = Timer.scheduledTimer(timeInterval: allowedDelay, target: self, selector: #selector(missedMove), userInfo: nil, repeats: false)
                 
-//                panel.setPanelColour(colourHex: brightColours[panel.tag - 1])
-//                panels[panelNumber].dim()
                 panel.dim()
 
                 if panelNumber == panelSequence[currentNoteItemInput] {
-//                    print("Correct panel pressed, wanted \(panelSequence[currentNoteItemInput]) pressed \(panelNumber)")
                     currentNoteItemInput += 1
-//                    print("Score Incrementor: \(scoreIncrementor); Score: \(score)")
                     score += scoreIncrementor
                     
                     if currentNoteItemInput >= panelSequence.count {
@@ -168,7 +147,6 @@ class Panels4VC: UIViewController {
 //                    print("INCORRECT panel pressed, wanted \(panelSequence[currentNoteItemInput]) pressed \(panelNumber)")
                     wrongPanelPressed(number: panelSequence[currentNoteItemInput])
                 }
-                //            dimPanels()
             }
         }
     }
@@ -176,15 +154,12 @@ class Panels4VC: UIViewController {
     @objc func missedMove () {
         print ("missedMove initiated")
 
-//        flashCount = 0
         panelToFlash = panelSequence[currentNoteItemInput]
 
         moveTimer.invalidate()
 
         lockPanels()
-//        dimPanels()
 
-//        panels[panelToFlash].flash(numberOfTimes: numberFlashesOnFail, everySecs: flashDuration * 2, lightUpForSecs: flashDuration)
         panels[panelToFlash].flash(numberOfTimes: numberFlashesOnFail, everySecs: flashDuration * 2, lightUpForSecs: flashDuration, dimHexValue: dimColours[panelToFlash], brightHexValue: brightColours[panelToFlash])
 
         Timer.after(Double(numberFlashesOnFail) * flashDuration * 2) {
@@ -194,14 +169,9 @@ class Panels4VC: UIViewController {
     
     func wrongPanelPressed (number panelNumber: Int) {
         lockPanels()
-//        flashCount = 0
         panelToFlash = panelNumber
         moveTimer.invalidate()
         
-//        print("Just before flashPanel in wrongPanelPressed")
-        
-//        panels[panelNumber].flash(numberOfTimes: numberFlashesOnFail, everySecs: flashDuration * 2, lightUpForSecs: flashDuration)
-
         panels[panelNumber].flash(numberOfTimes: numberFlashesOnFail, everySecs: flashDuration * 2, lightUpForSecs: flashDuration, dimHexValue: dimColours[panelNumber], brightHexValue: brightColours[panelNumber])
 
         Timer.after(Double(numberFlashesOnFail) * flashDuration * 2) {
@@ -215,12 +185,19 @@ class Panels4VC: UIViewController {
         
         dimPanels()
         startButton.isHidden = false
+        startButton.isHidden = true
         lockPanels()
-        
-//        print(String(highScores[0].score))
-//        panels[1].setTitle(String(highScores[0].score), for: .disabled)
-//        panels[1].setTitle(String(highScores[0].score), for: .normal)
-        
+        if let text = panels[1].titleLabel?.text {
+            panels[1].setLabel(labelText: text)
+        }
+        panels[3].hidePanel()
+        panels[4].unhidePanel()
+        panels[4].enable()
+//        panels[3].setAttributedTitle(<#T##title: NSAttributedString?##NSAttributedString?#>, for: <#T##UIControlState#>)
+//        let attributeString = NSMutableAttributedString(string: "START",
+//                                                        attributes: yourAttributes)
+//        panels[3].setAttributedTitle(attributeString, for: .normal)
+
         for highScore in highScores {
             print(highScore.score)
             highScoreText += String(highScore.score) + "\n"
@@ -230,10 +207,11 @@ class Panels4VC: UIViewController {
     }
 
     func playRound () {
+        gameIsOver = false
+
         currentNoteItemPlayed = 0
         
         if playbackTempo > 0.2 && panelSequence.count % 2 == 0 && panelSequence.count > 0 {
-//            print("Increasing difficulty - panelSequence.count: \(panelSequence.count)")
             playbackTempo -= 0.05
             playbackFlashDuration = playbackTempo / 3
             scoreIncrementor += 1
@@ -248,15 +226,13 @@ class Panels4VC: UIViewController {
         currentNoteItemInput = 0
 
         startButton.isHidden = true
-        
+        panels[3].unhidePanel()
+        panels[4].hidePanel()
+
         //        MARK: TODO: use SwiftyTimer
         Timer.every(playbackTempo) { (timer: Timer) in
             let currentNote = self.panelSequence[self.currentNoteItemPlayed]
-//            self.panels[currentNote].flash(numberOfTimes: 1, everySecs: 0, lightUpForSecs: 0.3)
-//            self.panels[currentNote].flash(numberOfTimes: 1, everySecs: 0, lightUpForSecs: self.playbackFlashDuration)
             self.panels[currentNote].flash(numberOfTimes: 1, everySecs: 0, lightUpForSecs: self.playbackFlashDuration, dimHexValue: dimColours[currentNote], brightHexValue: brightColours[currentNote])
-
-//            panels[panelToFlash].flash(numberOfTimes: numberFlashesOnFail, everySecs: flashDuration * 2, lightUpForSecs: flashDuration, dimHexValue: dimColours[panelToFlash - 1], brightHexValue: brightColours[panelToFlash - 1])
 
             self.currentNoteItemPlayed += 1
             
@@ -276,13 +252,12 @@ class Panels4VC: UIViewController {
         currentNoteItemPlayed = 0
         
         userMessage.isHidden = true
-        gameIsOver = false
         
         playbackTempo = 1.0
-//        playbackFlashDuration = 0.3
         
         score = 0
         scoreIncrementor = 1
+        panels[1].setLabel(labelText: "")
 
         playRound()
     }
@@ -309,8 +284,13 @@ class Panels4VC: UIViewController {
 //        print("Yellow pressed")
         handlePressedPanel(sender, panelNumber: 2)
     }
+    
     @IBAction func handleBluePress(_ sender: UILongPressGestureRecognizer) {
-//        print("Blue pressed")
         handlePressedPanel(sender, panelNumber: 3)
+    }
+    
+    @IBAction func handleBlueInfoButtonPress(_ sender: Any) {
+        print("Blue START pressed")
+        startGame()
     }
 }
