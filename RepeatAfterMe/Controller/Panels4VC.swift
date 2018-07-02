@@ -71,6 +71,10 @@ class Panels4VC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        for panel in panels {
+            panel.roundCorner()
+        }
+
         loadHighScores()
         
         for i in highScores {
@@ -83,18 +87,58 @@ class Panels4VC: UIViewController {
     func gameOver () {
         gameIsOver = true
         
-        let highScore = HighScores()
-        highScore.name = "Jes"
-        highScore.score = score
-        highScore.mode = "Standard"
-        
-        do {
-            try realm.write {
-                realm.add(highScore)
+        if self.highScores.count < 5 || score > self.highScores[4].score {
+            if self.highScores.count > 4 {
+                for i in 4...self.highScores.count - 1 {
+                    if let hScore = self.highScores?[i] {
+                        do {
+                            try self.realm.write {
+                                self.realm.delete(hScore)
+                            }
+                        } catch {
+                            print("Error deleting item, \(error)")
+                        }
+                    }
+
+                }
             }
-        } catch {
-            print("Error initialising new realm: \(error)")
+            
+            let highScore = HighScores()
+            highScore.name = "Jes"
+            highScore.score = score
+            highScore.mode = "Standard"
+            
+            do {
+                try realm.write {
+                    realm.add(highScore)
+                }
+            } catch {
+                print("Error initialising new realm: \(error)")
+            }
         }
+
+//        let highScore = HighScores()
+//        highScore.name = "Jes"
+//        highScore.score = score
+//        highScore.mode = "Standard"
+//
+//        do {
+//            try realm.write {
+//                realm.add(highScore)
+//            }
+//        } catch {
+//            print("Error initialising new realm: \(error)")
+//        }
+
+//        if let hScore = self.highScores?[5] {
+//            do {
+//                try self.realm.write {
+//                    self.realm.delete(hScore)
+//                }
+//            } catch {
+//                print("Error deleting item, \(error)")
+//            }
+//        }
 
         panels[1].setLabel(labelText: "Last Game Stats:\n\nRound: \(panelSequence.count)\nScore: \(score)")
         prepareForStart()
@@ -263,7 +307,15 @@ class Panels4VC: UIViewController {
     }
     
     func loadHighScores () {
-        highScores = realm.objects(HighScores.self)
+//        highScores = realm.objects(HighScores.self)
+        highScores = realm.objects(HighScores.self).sorted(byKeyPath: String("score"), ascending: false)
+
+//        func loadItems() {
+//            todoItems = selectedCategory?.items.sorted(byKeyPath: "title", ascending: true)
+//
+//            tableView.reloadData()
+//        }
+
     }
     
     @IBAction func startButtonPressed(_ sender: Any) {

@@ -15,6 +15,7 @@ class GamePanel: UIButton {
     init() {
         super.init(frame: .zero)
 //        setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .disabled)
+//        self.layer.cornerRadius = 25
         setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
     }
     
@@ -66,6 +67,7 @@ class GamePanel: UIButton {
     
     func light () {
         self.alpha = 1
+//        self.layer.cornerRadius = 25
     }
 
     func dim () {
@@ -82,6 +84,10 @@ class GamePanel: UIButton {
     
     func setPanelColour (colourHex: String) {
         self.backgroundColor = UIColor(hexString: colourHex)
+    }
+
+    func roundCorner () {
+        self.layer.cornerRadius = 15
     }
 
     func enable () {
