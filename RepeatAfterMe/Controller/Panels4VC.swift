@@ -82,6 +82,20 @@ class Panels4VC: UIViewController {
         }
         
         prepareForStart()
+        
+//        panels[0].setTitle("Zero 0", for: .normal)
+//        panels[1].setTitle("One 1", for: .normal)
+//        panels[2].setTitle("Two 2", for: .normal)
+//        panels[3].setTitle("Three 3", for: .normal)
+//        panels[4].setTitle("Four 4", for: .normal)
+//        panels[5].setTitle("Five 5", for: .normal)
+//        panels[0].setLabel(labelText: "Zero 0")
+//        panels[1].setLabel(labelText: "One 1")
+//        panels[2].setLabel(labelText: "Two 2")
+//        panels[3].setLabel(labelText: "Three 3")
+//        panels[4].setLabel(labelText: "Four 4")
+//        panels[5].setLabel(labelText: "Five 5")
+        
     }
     
     func gameOver () {
@@ -141,13 +155,15 @@ class Panels4VC: UIViewController {
 //        }
 
         panels[1].setLabel(labelText: "Last Game Stats:\n\nRound: \(panelSequence.count)\nScore: \(score)")
+        
         prepareForStart()
     }
 
     func dimPanels () {
         for panel in panels {
             print(panel.tag)
-            panel.setPanelColour(colourHex: dimColours[panel.tag - 1])
+            panel.dim(brightHexValue: brightColours[panel.tag - 1])
+//            panel.setPanelColour(colourHex: dimColours[panel.tag - 1])
         }
     }
     
@@ -168,7 +184,7 @@ class Panels4VC: UIViewController {
 
         if sender.state == UIGestureRecognizerState.began
         {
-            panel.light()
+            panel.light(brightHexValue: brightColours[panelNumber])
         } else if sender.state == UIGestureRecognizerState.ended {
 //            print("Panel released - \(panelNumber)")
             moveTimer.invalidate()
@@ -176,7 +192,7 @@ class Panels4VC: UIViewController {
             if !gameIsOver {
                 moveTimer = Timer.scheduledTimer(timeInterval: allowedDelay, target: self, selector: #selector(missedMove), userInfo: nil, repeats: false)
                 
-                panel.dim()
+                panel.dim(brightHexValue: brightColours[panelNumber])
 
                 if panelNumber == panelSequence[currentNoteItemInput] {
                     currentNoteItemInput += 1
@@ -206,6 +222,8 @@ class Panels4VC: UIViewController {
 
         panels[panelToFlash].flash(numberOfTimes: numberFlashesOnFail, everySecs: flashDuration * 2, lightUpForSecs: flashDuration, dimHexValue: dimColours[panelToFlash], brightHexValue: brightColours[panelToFlash])
 
+//        panels[panelToFlash].flash(numberOfTimes: numberFlashesOnFail, everySecs: flashDuration * 2, lightUpForSecs: flashDuration)
+
         Timer.after(Double(numberFlashesOnFail) * flashDuration * 2) {
             self.gameOver()
         }
@@ -218,6 +236,8 @@ class Panels4VC: UIViewController {
         
         panels[panelNumber].flash(numberOfTimes: numberFlashesOnFail, everySecs: flashDuration * 2, lightUpForSecs: flashDuration, dimHexValue: dimColours[panelNumber], brightHexValue: brightColours[panelNumber])
 
+//        panels[panelNumber].flash(numberOfTimes: numberFlashesOnFail, everySecs: flashDuration * 2, lightUpForSecs: flashDuration)
+
         Timer.after(Double(numberFlashesOnFail) * flashDuration * 2) {
             self.gameOver()
         }
@@ -227,13 +247,15 @@ class Panels4VC: UIViewController {
     func prepareForStart () {
         var highScoreText = ""
         
-        dimPanels()
+        dimPanels()             // was hidden. Tryng to ID where extra dimming coming from
         startButton.isHidden = false
         startButton.isHidden = true
-        lockPanels()
+//        lockPanels()
         if let text = panels[1].titleLabel?.text {
             panels[1].setLabel(labelText: text)
         }
+        
+//      Set up START panel
         panels[3].hidePanel()
         panels[4].unhidePanel()
         panels[4].enable()
@@ -242,12 +264,19 @@ class Panels4VC: UIViewController {
 //                                                        attributes: yourAttributes)
 //        panels[3].setAttributedTitle(attributeString, for: .normal)
 
+//      Set up High Score panel
+        panels[0].hidePanel()
+        panels[5].unhidePanel()
+        panels[5].enable()
+
         for highScore in highScores {
             print(highScore.score)
             highScoreText += String(highScore.score) + "\n"
         }
-        panels[0].setTitle(highScoreText, for: .normal)
-        panels[2].setTitle(highScoreText, for: .normal)
+//        panels[0].setTitle(highScoreText, for: .normal)
+        panels[5].setLabel(labelText: highScoreText)
+//        panels[0].setTitle(highScoreText, for: .normal)
+        panels[5].setTitle(highScoreText, for: .normal)
     }
 
     func playRound () {
@@ -261,7 +290,7 @@ class Panels4VC: UIViewController {
             scoreIncrementor += 1
         }
 
-        lockPanels()
+//        lockPanels()
         panelSequence += [Int(arc4random_uniform(numberOfPanels))]
 
         print(panelSequence)
@@ -270,6 +299,8 @@ class Panels4VC: UIViewController {
         currentNoteItemInput = 0
 
         startButton.isHidden = true
+        panels[0].unhidePanel()
+        panels[5].hidePanel()
         panels[3].unhidePanel()
         panels[4].hidePanel()
 
@@ -277,6 +308,8 @@ class Panels4VC: UIViewController {
         Timer.every(playbackTempo) { (timer: Timer) in
             let currentNote = self.panelSequence[self.currentNoteItemPlayed]
             self.panels[currentNote].flash(numberOfTimes: 1, everySecs: 0, lightUpForSecs: self.playbackFlashDuration, dimHexValue: dimColours[currentNote], brightHexValue: brightColours[currentNote])
+
+//            self.panels[currentNote].flash(numberOfTimes: 1, everySecs: 0, lightUpForSecs: self.playbackFlashDuration)
 
             self.currentNoteItemPlayed += 1
             
@@ -301,6 +334,7 @@ class Panels4VC: UIViewController {
         
         score = 0
         scoreIncrementor = 1
+        panels[0].setLabel(labelText: "")
         panels[1].setLabel(labelText: "")
 
         playRound()

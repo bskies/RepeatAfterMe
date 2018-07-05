@@ -10,11 +10,11 @@ import UIKit
 import ChameleonFramework
 
 class GamePanel: UIButton {
-    let panelDimAlphaValue = CGFloat(0.3)
+//    let panelDimAlphaValue = CGFloat(0.3)
     
     init() {
         super.init(frame: .zero)
-//        setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .disabled)
+        setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .disabled)
 //        self.layer.cornerRadius = 25
         setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
     }
@@ -45,33 +45,43 @@ class GamePanel: UIButton {
 //    }
 
     func flash (numberOfTimes: Int, everySecs: Double, lightUpForSecs: Double, dimHexValue: String, brightHexValue:String) {
+//    func flash (numberOfTimes: Int, everySecs: Double, lightUpForSecs: Double) {
+
         var timesFlashed = 0
         
         Timer.every(everySecs) { (timer: Timer) in
-            self.alpha = 1
+//            self.alpha = 1
 //            self.backgroundColor = UIColor(hexString: brightHexValue, withAlpha: self.panelDimAlphaValue)
+
             self.backgroundColor = UIColor(hexString: brightHexValue, withAlpha: 1)
+
+            self.light(brightHexValue: brightHexValue)
             timesFlashed += 1
             
             Timer.after(lightUpForSecs) {
                 //            Timer.after(0.5.seconds) {
-                self.alpha = self.panelDimAlphaValue
+                self.backgroundColor = UIColor(hexString: brightHexValue, withAlpha: panelDimAlphaValue)
+//                self.alpha = self.panelDimAlphaValue
+//                self.setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
             }
             
             if timesFlashed >= numberOfTimes {
                 timer.invalidate()
             }
-            
         }
     }
     
-    func light () {
-        self.alpha = 1
+    func light (brightHexValue:String) {
+//        self.alpha = 1
+        self.backgroundColor = UIColor(hexString: brightHexValue, withAlpha: 1)
 //        self.layer.cornerRadius = 25
     }
 
-    func dim () {
-        self.alpha = panelDimAlphaValue
+    func dim (brightHexValue:String) {
+//        self.alpha = panelDimAlphaValue
+        self.backgroundColor = UIColor(hexString: brightHexValue, withAlpha: panelDimAlphaValue)
+//        self.backgroundColor = UIColor(hexString: colourHex)
+
     }
     
     func hidePanel () {
@@ -101,6 +111,7 @@ class GamePanel: UIButton {
     func setLabel (labelText: String) {
         self.setTitle(labelText, for: .normal)
         self.setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
+//        self.setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .disabled)
 //        self.setAttributedTitle(<#T##title: NSAttributedString?##NSAttributedString?#>, for: <#T##UIControlState#>)
     }
 }

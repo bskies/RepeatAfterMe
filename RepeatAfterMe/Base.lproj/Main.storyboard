@@ -26,7 +26,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="303.5"/>
                                         <subviews>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="dKK-aw-Lvb" userLabel="GreenButton" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="157.5" height="303.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="98.5" height="303.5"/>
                                                 <color key="backgroundColor" red="0.0" green="0.77254901960784317" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <gestureRecognizers/>
                                                 <state key="normal">
@@ -36,8 +36,16 @@
                                                     <outletCollection property="gestureRecognizers" destination="Bcx-aO-Ryx" appends="YES" id="nPj-K1-Mx3"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="KEH-mv-Lvx" userLabel="GreenButton" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
+                                                <rect key="frame" x="118.5" y="0.0" width="98" height="303.5"/>
+                                                <color key="backgroundColor" red="0.0" green="0.7725490196" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <gestureRecognizers/>
+                                                <state key="normal">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Nvh-q3-Ixh" userLabel="RedButton" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
-                                                <rect key="frame" x="177.5" y="0.0" width="157.5" height="303.5"/>
+                                                <rect key="frame" x="236.5" y="0.0" width="98.5" height="303.5"/>
                                                 <color key="backgroundColor" red="0.77897135416666663" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
@@ -157,6 +165,7 @@ Score: </string>
                         <outletCollection property="panels" destination="wox-XP-8bW" collectionClass="NSMutableArray" id="kHB-KR-6RW"/>
                         <outletCollection property="panels" destination="8ou-KC-2UP" collectionClass="NSMutableArray" id="5Hv-Ub-5bO"/>
                         <outletCollection property="panels" destination="uNM-t8-NUx" collectionClass="NSMutableArray" id="w3z-w0-SGL"/>
+                        <outletCollection property="panels" destination="KEH-mv-Lvx" collectionClass="NSMutableArray" id="nwl-hk-a4T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
