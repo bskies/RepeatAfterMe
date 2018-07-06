@@ -44,7 +44,8 @@ class GamePanel: UIButton {
 //        }
 //    }
 
-    func flash (numberOfTimes: Int, everySecs: Double, lightUpForSecs: Double, dimHexValue: String, brightHexValue:String) {
+    func flash (numberOfTimes: Int, everySecs: Double, lightUpForSecs: Double, brightHexValue:String) {
+//        func flash (numberOfTimes: Int, everySecs: Double, lightUpForSecs: Double, dimHexValue: String, brightHexValue:String) {
 //    func flash (numberOfTimes: Int, everySecs: Double, lightUpForSecs: Double) {
 
         var timesFlashed = 0

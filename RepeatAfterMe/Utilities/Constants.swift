@@ -18,5 +18,5 @@ let flashDuration = 0.1
 //let dimColours = ["033C04","3F0902","423E07","01164C","01164C"]
 //let brightColours = ["1FC923","A71A11","AFA623","0D3EC9","0D3EC9"]
 
-let dimColours = ["033C04","3F0902","423E07","01164C","01164C","033C04"]
+//let dimColours = ["033C04","3F0902","423E07","01164C","01164C","033C04"]
 let brightColours = ["1FC923","A71A11","AFA623","0D3EC9","0D3EC9","1FC923"]

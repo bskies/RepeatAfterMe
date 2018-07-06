@@ -56,11 +56,11 @@ class Panels4VC: UIViewController {
     var noteCount = 0
     var panelSequence:[Int] = []
      
-//    let yourAttributes : [NSAttributedStringKey: Any] = [
-//        NSAttributedStringKey.font : UIFont.systemFont(ofSize: 30),
-//        NSAttributedStringKey.foregroundColor : UIColor.white,
-//        //        NSAttributedStringKey.underlineStyle : NSUnderlineStyle.styleSingle.rawValue
-//    ]
+    let yourAttributes : [NSAttributedStringKey: Any] = [
+        NSAttributedStringKey.font : UIFont.systemFont(ofSize: 30),
+        NSAttributedStringKey.foregroundColor : UIColor.white,
+        //        NSAttributedStringKey.underlineStyle : NSUnderlineStyle.styleSingle.rawValue
+    ]
 
     @IBOutlet weak var userMessage: UILabel!
     
@@ -220,7 +220,7 @@ class Panels4VC: UIViewController {
 
         lockPanels()
 
-        panels[panelToFlash].flash(numberOfTimes: numberFlashesOnFail, everySecs: flashDuration * 2, lightUpForSecs: flashDuration, dimHexValue: dimColours[panelToFlash], brightHexValue: brightColours[panelToFlash])
+        panels[panelToFlash].flash(numberOfTimes: numberFlashesOnFail, everySecs: flashDuration * 2, lightUpForSecs: flashDuration, brightHexValue: brightColours[panelToFlash])
 
 //        panels[panelToFlash].flash(numberOfTimes: numberFlashesOnFail, everySecs: flashDuration * 2, lightUpForSecs: flashDuration)
 
@@ -234,7 +234,9 @@ class Panels4VC: UIViewController {
         panelToFlash = panelNumber
         moveTimer.invalidate()
         
-        panels[panelNumber].flash(numberOfTimes: numberFlashesOnFail, everySecs: flashDuration * 2, lightUpForSecs: flashDuration, dimHexValue: dimColours[panelNumber], brightHexValue: brightColours[panelNumber])
+        panels[panelNumber].flash(numberOfTimes: numberFlashesOnFail, everySecs: flashDuration * 2, lightUpForSecs: flashDuration, brightHexValue: brightColours[panelNumber])
+
+//        panels[panelNumber].flash(numberOfTimes: numberFlashesOnFail, everySecs: flashDuration * 2, lightUpForSecs: flashDuration, dimHexValue: dimColours[panelNumber], brightHexValue: brightColours[panelNumber])
 
 //        panels[panelNumber].flash(numberOfTimes: numberFlashesOnFail, everySecs: flashDuration * 2, lightUpForSecs: flashDuration)
 
@@ -259,12 +261,20 @@ class Panels4VC: UIViewController {
         panels[3].hidePanel()
         panels[4].unhidePanel()
         panels[4].enable()
-//        panels[3].setAttributedTitle(<#T##title: NSAttributedString?##NSAttributedString?#>, for: <#T##UIControlState#>)
-//        let attributeString = NSMutableAttributedString(string: "START",
-//                                                        attributes: yourAttributes)
-//        panels[3].setAttributedTitle(attributeString, for: .normal)
 
-//      Set up High Score panel
+
+
+
+        panels[2].setAttributedTitle(<#T##title: NSAttributedString?##NSAttributedString?#>, for: .normal)
+        let attributeString = NSMutableAttributedString(string: "START",
+                                                        attributes: yourAttributes)
+        panels[3].setAttributedTitle(attributeString, for: .normal)
+
+
+        
+        
+        
+        //      Set up High Score panel
         panels[0].hidePanel()
         panels[5].unhidePanel()
         panels[5].enable()
@@ -307,7 +317,9 @@ class Panels4VC: UIViewController {
         //        MARK: TODO: use SwiftyTimer
         Timer.every(playbackTempo) { (timer: Timer) in
             let currentNote = self.panelSequence[self.currentNoteItemPlayed]
-            self.panels[currentNote].flash(numberOfTimes: 1, everySecs: 0, lightUpForSecs: self.playbackFlashDuration, dimHexValue: dimColours[currentNote], brightHexValue: brightColours[currentNote])
+//            self.panels[currentNote].flash(numberOfTimes: 1, everySecs: 0, lightUpForSecs: self.playbackFlashDuration, dimHexValue: dimColours[currentNote], brightHexValue: brightColours[currentNote])
+
+            self.panels[currentNote].flash(numberOfTimes: 1, everySecs: 0, lightUpForSecs: self.playbackFlashDuration, brightHexValue: brightColours[currentNote])
 
 //            self.panels[currentNote].flash(numberOfTimes: 1, everySecs: 0, lightUpForSecs: self.playbackFlashDuration)
 
