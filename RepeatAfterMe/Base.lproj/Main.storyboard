@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -48,17 +49,39 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zy8-3y-R2T" userLabel="ScoreNameLabel">
+                                        <rect key="frame" x="25" y="17" width="97" height="290"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pb7-tZ-wFh" userLabel="ScoreLabel">
+                                        <rect key="frame" x="122" y="17" width="49" height="290"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="Zy8-3y-R2T" firstAttribute="leading" secondItem="jon-r8-qi0" secondAttribute="leading" constant="25" id="0C9-Rz-qhH"/>
                                     <constraint firstAttribute="bottom" secondItem="KEH-mv-Lvx" secondAttribute="bottom" constant="17" id="0Rk-WD-Vjl"/>
+                                    <constraint firstItem="pb7-tZ-wFh" firstAttribute="top" secondItem="jon-r8-qi0" secondAttribute="top" constant="17" id="2gQ-In-EX6"/>
+                                    <constraint firstItem="pb7-tZ-wFh" firstAttribute="leading" secondItem="Zy8-3y-R2T" secondAttribute="trailing" id="8Jz-4A-Bmc"/>
                                     <constraint firstAttribute="trailing" secondItem="Nvh-q3-Ixh" secondAttribute="trailing" constant="17" id="D0B-dI-za5"/>
+                                    <constraint firstItem="Zy8-3y-R2T" firstAttribute="top" secondItem="jon-r8-qi0" secondAttribute="top" constant="17" id="HDD-5D-F5F"/>
+                                    <constraint firstItem="Nvh-q3-Ixh" firstAttribute="leading" secondItem="pb7-tZ-wFh" secondAttribute="trailing" constant="25" id="HdD-ck-VeJ"/>
                                     <constraint firstAttribute="bottom" secondItem="dKK-aw-Lvb" secondAttribute="bottom" constant="17" id="STV-bm-6JH"/>
                                     <constraint firstItem="KEH-mv-Lvx" firstAttribute="top" secondItem="jon-r8-qi0" secondAttribute="top" constant="17" id="Tat-FI-RV2"/>
                                     <constraint firstItem="Nvh-q3-Ixh" firstAttribute="height" secondItem="dKK-aw-Lvb" secondAttribute="height" id="Udw-kl-QBQ"/>
+                                    <constraint firstItem="pb7-tZ-wFh" firstAttribute="leading" secondItem="Zy8-3y-R2T" secondAttribute="trailing" id="X3T-iC-t8P"/>
                                     <constraint firstItem="Nvh-q3-Ixh" firstAttribute="width" secondItem="dKK-aw-Lvb" secondAttribute="width" id="XXW-2S-03q"/>
+                                    <constraint firstItem="pb7-tZ-wFh" firstAttribute="height" secondItem="Zy8-3y-R2T" secondAttribute="height" id="XXa-QZ-7C6"/>
                                     <constraint firstItem="Nvh-q3-Ixh" firstAttribute="height" secondItem="KEH-mv-Lvx" secondAttribute="height" id="Yf8-ho-TUt"/>
                                     <constraint firstItem="Nvh-q3-Ixh" firstAttribute="leading" secondItem="dKK-aw-Lvb" secondAttribute="trailing" constant="17" id="Ym3-Lt-v51"/>
+                                    <constraint firstItem="pb7-tZ-wFh" firstAttribute="width" secondItem="Zy8-3y-R2T" secondAttribute="width" multiplier="0.5" id="Z6U-lS-aWb"/>
+                                    <constraint firstAttribute="bottom" secondItem="Zy8-3y-R2T" secondAttribute="bottom" constant="17" id="Z7s-ew-74o"/>
+                                    <constraint firstAttribute="bottom" secondItem="pb7-tZ-wFh" secondAttribute="bottom" constant="17" id="gIT-tf-Xp8"/>
                                     <constraint firstItem="KEH-mv-Lvx" firstAttribute="leading" secondItem="jon-r8-qi0" secondAttribute="leading" constant="17" id="ikd-I1-h0W"/>
                                     <constraint firstItem="dKK-aw-Lvb" firstAttribute="leading" secondItem="jon-r8-qi0" secondAttribute="leading" constant="17" id="p0R-mI-mKt"/>
                                     <constraint firstAttribute="bottom" secondItem="Nvh-q3-Ixh" secondAttribute="bottom" constant="17" id="pUE-W1-gcK"/>
@@ -139,6 +162,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="highScoreNameLabel" destination="Zy8-3y-R2T" id="EuE-1A-xOr"/>
+                        <outlet property="highScoreScoreLabel" destination="pb7-tZ-wFh" id="MwH-B0-pxx"/>
                         <outlet property="scorePanel" destination="KEH-mv-Lvx" id="vgV-c0-Gh8"/>
                         <outlet property="startPanel" destination="uNM-t8-NUx" id="I5X-RX-XCO"/>
                         <outletCollection property="panels" destination="dKK-aw-Lvb" collectionClass="NSMutableArray" id="n2z-fl-7fZ"/>

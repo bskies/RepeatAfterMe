@@ -71,6 +71,10 @@ class Panels4VC: UIViewController {
 
     @IBOutlet weak var startPanel: GamePanel!
     
+    @IBOutlet weak var highScoreNameLabel: UILabel!
+    
+    @IBOutlet weak var highScoreScoreLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -258,7 +262,15 @@ class Panels4VC: UIViewController {
     
 //    MARK: Game functions
     func prepareForStart () {
-        var highScoreText = ""
+//        var highScoreText = ""
+        var highScoreName = ""
+        var highScoreScore = ""
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale(identifier: "en_AU")
+
         
         dimPanels()             // was hidden. Tryng to ID where extra dimming coming from
 //        startButton.isHidden = false
@@ -273,6 +285,9 @@ class Panels4VC: UIViewController {
         panels[bluePanelNumber].hidePanel()
         startPanel.unhidePanel()
         scorePanel.unhidePanel()
+        highScoreNameLabel.isHidden = false
+        highScoreScoreLabel.isHidden = false
+
 //        panels[4].unhidePanel()
 //        panels[4].enable()
 
@@ -291,10 +306,16 @@ class Panels4VC: UIViewController {
 
         for highScore in highScores {
             print(highScore.score)
-            highScoreText += String(highScore.score) + "\n"
+//            highScoreText += String(highScore.score) + "\n"
+            highScoreName += "\(highScore.name) \(dateFormatter.string(from: highScore.date)) \n"
+            highScoreScore += String(highScore.score) + "\n"
+            
+            print(dateFormatter.string(from: highScore.date))
         }
         
-        scorePanel.setTitle(highScoreText, for: .normal)
+//        scorePanel.setTitle(highScoreText, for: .normal)
+        highScoreNameLabel.text = highScoreName
+        highScoreScoreLabel.text = highScoreScore
         
 //        panels[0].setTitle(highScoreText, for: .normal)
 //        panels[5].setLabel(labelText: highScoreText)
@@ -365,7 +386,9 @@ class Panels4VC: UIViewController {
         
         score = 0
         scoreIncrementor = 1
-        panels[greenPanelNumber].setLabel(labelText: "")
+//        panels[greenPanelNumber].setLabel(labelText: "")
+        highScoreNameLabel.isHidden = true
+        highScoreScoreLabel.isHidden = true
         panels[redPanelNumber].setLabel(labelText: "")
 
         playRound()
