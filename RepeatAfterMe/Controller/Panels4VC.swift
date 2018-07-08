@@ -62,18 +62,24 @@ class Panels4VC: UIViewController {
         //        NSAttributedStringKey.underlineStyle : NSUnderlineStyle.styleSingle.rawValue
     ]
 
-    @IBOutlet weak var userMessage: UILabel!
+//    @IBOutlet weak var userMessage: UILabel!
     
     @IBOutlet var panels: [GamePanel]!
 
-    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var scorePanel: GamePanel!
+    //    @IBOutlet weak var startButton: UIButton!
 
+    @IBOutlet weak var startPanel: GamePanel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         for panel in panels {
             panel.roundCorner()
         }
+        
+        scorePanel.roundCorner()
+        startPanel.roundCorner()
 
         loadHighScores()
         
@@ -89,10 +95,13 @@ class Panels4VC: UIViewController {
 //        panels[3].setTitle("Three 3", for: .normal)
 //        panels[4].setTitle("Four 4", for: .normal)
 //        panels[5].setTitle("Five 5", for: .normal)
-//        panels[0].setLabel(labelText: "Zero 0")
-//        panels[1].setLabel(labelText: "One 1")
-//        panels[2].setLabel(labelText: "Two 2")
-//        panels[3].setLabel(labelText: "Three 3")
+
+        scorePanel.disable()
+//        scorePanel.isHidden = true
+//        panels[greenPanelNumber].setLabel(labelText: "Zero 0")
+//        panels[redPanelNumber].setLabel(labelText: "One 1")
+//        panels[yellowPanelNumber].setLabel(labelText: "Two 2")
+//        panels[bluePanelNumber].setLabel(labelText: "Three 3")
 //        panels[4].setLabel(labelText: "Four 4")
 //        panels[5].setLabel(labelText: "Five 5")
         
@@ -154,7 +163,7 @@ class Panels4VC: UIViewController {
 //            }
 //        }
 
-        panels[1].setLabel(labelText: "Last Game Stats:\n\nRound: \(panelSequence.count)\nScore: \(score)")
+        panels[redPanelNumber].setLabel(labelText: "Last Game Stats:\n\nRound: \(panelSequence.count)\nScore: \(score)")
         
         prepareForStart()
     }
@@ -165,6 +174,8 @@ class Panels4VC: UIViewController {
             panel.dim(brightHexValue: brightColours[panel.tag - 1])
 //            panel.setPanelColour(colourHex: dimColours[panel.tag - 1])
         }
+        scorePanel.dim(brightHexValue: brightColours[greenPanelNumber])
+        startPanel.dim(brightHexValue: brightColours[bluePanelNumber])
     }
     
     func lockPanels () {
@@ -250,43 +261,45 @@ class Panels4VC: UIViewController {
         var highScoreText = ""
         
         dimPanels()             // was hidden. Tryng to ID where extra dimming coming from
-        startButton.isHidden = false
-        startButton.isHidden = true
+//        startButton.isHidden = false
+//        startButton.isHidden = true
 //        lockPanels()
-        if let text = panels[1].titleLabel?.text {
-            panels[1].setLabel(labelText: text)
+        if let text = panels[redPanelNumber].titleLabel?.text {
+            panels[redPanelNumber].setLabel(labelText: text)
         }
         
 //      Set up START panel
-        panels[3].hidePanel()
-        panels[4].unhidePanel()
-        panels[4].enable()
+        panels[greenPanelNumber].hidePanel()
+        panels[bluePanelNumber].hidePanel()
+        startPanel.unhidePanel()
+        scorePanel.unhidePanel()
+//        panels[4].unhidePanel()
+//        panels[4].enable()
 
 
-
-
-        panels[2].setAttributedTitle(<#T##title: NSAttributedString?##NSAttributedString?#>, for: .normal)
-        let attributeString = NSMutableAttributedString(string: "START",
-                                                        attributes: yourAttributes)
-        panels[3].setAttributedTitle(attributeString, for: .normal)
+//        let attributeString = NSMutableAttributedString(string: "START", attributes: yourAttributes)
+//        panels[3].setAttributedTitle(attributeString, for: .normal)
 
 
         
         
         
         //      Set up High Score panel
-        panels[0].hidePanel()
-        panels[5].unhidePanel()
-        panels[5].enable()
+//        panels[0].hidePanel()
+//        panels[5].unhidePanel()
+//        panels[5].enable()
 
         for highScore in highScores {
             print(highScore.score)
             highScoreText += String(highScore.score) + "\n"
         }
+        
+        scorePanel.setTitle(highScoreText, for: .normal)
+        
 //        panels[0].setTitle(highScoreText, for: .normal)
-        panels[5].setLabel(labelText: highScoreText)
+//        panels[5].setLabel(labelText: highScoreText)
 //        panels[0].setTitle(highScoreText, for: .normal)
-        panels[5].setTitle(highScoreText, for: .normal)
+//        panels[5].setTitle(highScoreText, for: .normal)
     }
 
     func playRound () {
@@ -307,12 +320,18 @@ class Panels4VC: UIViewController {
         
         noteCount = panelSequence.count
         currentNoteItemInput = 0
+        
+        // Hide info panels; activate game panels
+        startPanel.isHidden = true
+        scorePanel.isHidden = true
+        panels[greenPanelNumber].unhidePanel()
+        panels[bluePanelNumber].unhidePanel()
 
-        startButton.isHidden = true
-        panels[0].unhidePanel()
-        panels[5].hidePanel()
-        panels[3].unhidePanel()
-        panels[4].hidePanel()
+//        startButton.isHidden = true
+//        panels[0].unhidePanel()
+//        panels[5].hidePanel()
+//        panels[3].unhidePanel()
+//        panels[4].hidePanel()
 
         //        MARK: TODO: use SwiftyTimer
         Timer.every(playbackTempo) { (timer: Timer) in
@@ -340,14 +359,14 @@ class Panels4VC: UIViewController {
 //        panelSequence = [1,0,3,2,1,1,2,0]
         currentNoteItemPlayed = 0
         
-        userMessage.isHidden = true
+//        userMessage.isHidden = true
         
         playbackTempo = 1.0
         
         score = 0
         scoreIncrementor = 1
-        panels[0].setLabel(labelText: "")
-        panels[1].setLabel(labelText: "")
+        panels[greenPanelNumber].setLabel(labelText: "")
+        panels[redPanelNumber].setLabel(labelText: "")
 
         playRound()
     }
@@ -364,30 +383,31 @@ class Panels4VC: UIViewController {
 
     }
     
-    @IBAction func startButtonPressed(_ sender: Any) {
-        startGame()
-    }
+//    @IBAction func startButtonPressed(_ sender: Any) {
+//        startGame()
+//    }
     
     @IBAction func handleGreenPress (_ sender: UILongPressGestureRecognizer) {
-//        print("Green pressed")
-        handlePressedPanel(sender, panelNumber: 0)
+        print("Green pressed")
+        handlePressedPanel(sender, panelNumber: greenPanelNumber)
     }
     
     @IBAction func handleRedPress(_ sender: UILongPressGestureRecognizer) {
-//        print("Red pressed")
-        handlePressedPanel(sender, panelNumber: 1)
+        print("Red pressed")
+        handlePressedPanel(sender, panelNumber: redPanelNumber)
     }
     
     @IBAction func handleYellowPress(_ sender: UILongPressGestureRecognizer) {
-//        print("Yellow pressed")
-        handlePressedPanel(sender, panelNumber: 2)
+        print("Yellow pressed")
+        handlePressedPanel(sender, panelNumber: yellowPanelNumber)
     }
     
     @IBAction func handleBluePress(_ sender: UILongPressGestureRecognizer) {
-        handlePressedPanel(sender, panelNumber: 3)
+        print("Blue pressed")
+        handlePressedPanel(sender, panelNumber: bluePanelNumber)
     }
     
-    @IBAction func handleBlueInfoButtonPress(_ sender: Any) {
+    @IBAction func handleStartButtonPress(_ sender: Any) {
         print("Blue START pressed")
         startGame()
     }

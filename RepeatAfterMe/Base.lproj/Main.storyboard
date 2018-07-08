@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,121 +18,133 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Jqy-S2-k7S">
-                                <rect key="frame" x="20" y="20" width="335" height="627"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jon-r8-qi0" userLabel="Top View">
+                                <rect key="frame" x="0.0" y="20" width="375" height="323.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Obu-od-kLj">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="303.5"/>
-                                        <subviews>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="dKK-aw-Lvb" userLabel="GreenButton" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="98.5" height="303.5"/>
-                                                <color key="backgroundColor" red="0.0" green="0.77254901960784317" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <gestureRecognizers/>
-                                                <state key="normal">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="Bcx-aO-Ryx" appends="YES" id="nPj-K1-Mx3"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="KEH-mv-Lvx" userLabel="ScoreButton" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
-                                                <rect key="frame" x="118.5" y="0.0" width="98" height="303.5"/>
-                                                <color key="backgroundColor" red="0.0" green="0.7725490196" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <gestureRecognizers/>
-                                                <state key="normal">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nvh-q3-Ixh" userLabel="RedButton" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
-                                                <rect key="frame" x="236.5" y="0.0" width="98.5" height="303.5"/>
-                                                <color key="backgroundColor" red="0.77897135416666663" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <gestureRecognizers/>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="DRj-zJ-G5v" appends="YES" id="uqA-B3-Gfs"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="Obu-od-kLj" secondAttribute="height" multiplier="1:1" id="7bK-1R-AcA"/>
-                                        </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="7bK-1R-AcA"/>
-                                            </mask>
-                                        </variation>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cp8-jX-gKS">
-                                        <rect key="frame" x="0.0" y="323.5" width="335" height="303.5"/>
-                                        <subviews>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="wox-XP-8bW" userLabel="YellowButton" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="98.5" height="303.5"/>
-                                                <color key="backgroundColor" red="0.82476128472222221" green="0.79142252604166663" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <gestureRecognizers/>
-                                                <state key="normal">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="Bsv-Dp-V9E" appends="YES" id="RKH-sV-Ql5"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="8ou-KC-2UP" userLabel="BlueButton" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
-                                                <rect key="frame" x="118.5" y="0.0" width="98" height="303.5"/>
-                                                <color key="backgroundColor" red="0.0" green="0.13145616319444445" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <gestureRecognizers/>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="Og1-ca-HXt" appends="YES" id="QFq-9E-p0k"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="uNM-t8-NUx" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
-                                                <rect key="frame" x="236.5" y="0.0" width="98.5" height="303.5"/>
-                                                <color key="backgroundColor" red="0.0" green="0.1314561632" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <gestureRecognizers/>
-                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="48"/>
-                                                <state key="normal" title="START">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="handleBlueInfoButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rO9-5g-8Ce"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="cp8-jX-gKS" secondAttribute="height" multiplier="1:1" id="o5z-Ng-PRk"/>
-                                        </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="o5z-Ng-PRk"/>
-                                            </mask>
-                                        </variation>
-                                    </stackView>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nvh-q3-Ixh" userLabel="RedButton" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
+                                        <rect key="frame" x="196" y="17" width="162" height="290"/>
+                                        <color key="backgroundColor" red="0.77897135416666663" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="DRj-zJ-G5v" appends="YES" id="uqA-B3-Gfs"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="dKK-aw-Lvb" userLabel="GreenButton" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
+                                        <rect key="frame" x="17" y="17" width="162" height="290"/>
+                                        <color key="backgroundColor" red="0.0" green="0.77254901960784317" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Bcx-aO-Ryx" appends="YES" id="nPj-K1-Mx3"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" tag="6" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="KEH-mv-Lvx" userLabel="ScoreButton" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
+                                        <rect key="frame" x="17" y="17" width="162" height="289.5"/>
+                                        <color key="backgroundColor" red="0.0" green="0.7725490196" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="cp8-jX-gKS" secondAttribute="bottom" id="53q-Fa-Mvi"/>
-                                    <constraint firstItem="cp8-jX-gKS" firstAttribute="top" secondItem="Obu-od-kLj" secondAttribute="bottom" constant="20" id="5bj-Iw-ApP"/>
-                                    <constraint firstItem="Obu-od-kLj" firstAttribute="leading" secondItem="Jqy-S2-k7S" secondAttribute="leading" id="6bi-Ag-GAw"/>
-                                    <constraint firstAttribute="trailing" secondItem="cp8-jX-gKS" secondAttribute="trailing" id="Dp2-qX-XvY"/>
-                                    <constraint firstAttribute="trailing" secondItem="Obu-od-kLj" secondAttribute="trailing" id="VY5-Tf-Vcr"/>
-                                    <constraint firstItem="Obu-od-kLj" firstAttribute="top" secondItem="Jqy-S2-k7S" secondAttribute="top" id="YbH-Id-Ddp"/>
-                                    <constraint firstItem="cp8-jX-gKS" firstAttribute="leading" secondItem="Jqy-S2-k7S" secondAttribute="leading" id="zb8-B0-qwl"/>
+                                    <constraint firstAttribute="bottom" secondItem="KEH-mv-Lvx" secondAttribute="bottom" constant="17" id="0Rk-WD-Vjl"/>
+                                    <constraint firstAttribute="trailing" secondItem="Nvh-q3-Ixh" secondAttribute="trailing" constant="17" id="D0B-dI-za5"/>
+                                    <constraint firstAttribute="bottom" secondItem="dKK-aw-Lvb" secondAttribute="bottom" constant="17" id="STV-bm-6JH"/>
+                                    <constraint firstItem="KEH-mv-Lvx" firstAttribute="top" secondItem="jon-r8-qi0" secondAttribute="top" constant="17" id="Tat-FI-RV2"/>
+                                    <constraint firstItem="Nvh-q3-Ixh" firstAttribute="height" secondItem="dKK-aw-Lvb" secondAttribute="height" id="Udw-kl-QBQ"/>
+                                    <constraint firstItem="Nvh-q3-Ixh" firstAttribute="width" secondItem="dKK-aw-Lvb" secondAttribute="width" id="XXW-2S-03q"/>
+                                    <constraint firstItem="Nvh-q3-Ixh" firstAttribute="height" secondItem="KEH-mv-Lvx" secondAttribute="height" id="Yf8-ho-TUt"/>
+                                    <constraint firstItem="Nvh-q3-Ixh" firstAttribute="leading" secondItem="dKK-aw-Lvb" secondAttribute="trailing" constant="17" id="Ym3-Lt-v51"/>
+                                    <constraint firstItem="KEH-mv-Lvx" firstAttribute="leading" secondItem="jon-r8-qi0" secondAttribute="leading" constant="17" id="ikd-I1-h0W"/>
+                                    <constraint firstItem="dKK-aw-Lvb" firstAttribute="leading" secondItem="jon-r8-qi0" secondAttribute="leading" constant="17" id="p0R-mI-mKt"/>
+                                    <constraint firstAttribute="bottom" secondItem="Nvh-q3-Ixh" secondAttribute="bottom" constant="17" id="pUE-W1-gcK"/>
+                                    <constraint firstItem="dKK-aw-Lvb" firstAttribute="top" secondItem="jon-r8-qi0" secondAttribute="top" constant="17" id="ty7-VA-7tj"/>
+                                    <constraint firstItem="Nvh-q3-Ixh" firstAttribute="width" secondItem="KEH-mv-Lvx" secondAttribute="width" id="uZD-Qm-snd"/>
+                                    <constraint firstItem="Nvh-q3-Ixh" firstAttribute="top" secondItem="jon-r8-qi0" secondAttribute="top" constant="17" id="vcZ-vE-s4g"/>
+                                    <constraint firstItem="Nvh-q3-Ixh" firstAttribute="leading" secondItem="KEH-mv-Lvx" secondAttribute="trailing" constant="17" id="w0Q-p3-qwi"/>
+                                    <constraint firstItem="Nvh-q3-Ixh" firstAttribute="leading" secondItem="dKK-aw-Lvb" secondAttribute="trailing" constant="17" id="ynl-2N-HYg"/>
                                 </constraints>
-                            </stackView>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0RX-RT-os6" userLabel="Bottom View">
+                                <rect key="frame" x="0.0" y="343.5" width="375" height="323.5"/>
+                                <subviews>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="8ou-KC-2UP" userLabel="BlueButton" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
+                                        <rect key="frame" x="196" y="17" width="162" height="289.5"/>
+                                        <color key="backgroundColor" red="0.0" green="0.13145616319444445" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Og1-ca-HXt" appends="YES" id="QFq-9E-p0k"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="wox-XP-8bW" userLabel="YellowButton" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
+                                        <rect key="frame" x="17" y="17" width="162" height="289.5"/>
+                                        <color key="backgroundColor" red="0.82476128472222221" green="0.79142252604166663" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Bsv-Dp-V9E" appends="YES" id="RKH-sV-Ql5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="uNM-t8-NUx" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
+                                        <rect key="frame" x="196" y="17" width="162" height="289.5"/>
+                                        <color key="backgroundColor" red="0.0" green="0.1314561632" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="48"/>
+                                        <state key="normal" title="START">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="handleStartButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rO9-5g-8Ce"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="8ou-KC-2UP" secondAttribute="bottom" constant="17" id="1Pl-OT-6vD"/>
+                                    <constraint firstItem="uNM-t8-NUx" firstAttribute="leading" secondItem="wox-XP-8bW" secondAttribute="trailing" constant="17" id="6xb-2u-DPo"/>
+                                    <constraint firstItem="8ou-KC-2UP" firstAttribute="width" secondItem="wox-XP-8bW" secondAttribute="width" id="AMb-94-zfh"/>
+                                    <constraint firstAttribute="bottom" secondItem="wox-XP-8bW" secondAttribute="bottom" constant="17" id="BQ2-Oy-ZSe"/>
+                                    <constraint firstItem="8ou-KC-2UP" firstAttribute="leading" secondItem="wox-XP-8bW" secondAttribute="trailing" constant="17" id="Frd-Cq-ksC"/>
+                                    <constraint firstItem="8ou-KC-2UP" firstAttribute="leading" secondItem="wox-XP-8bW" secondAttribute="trailing" constant="17" id="I0J-1d-2lv"/>
+                                    <constraint firstAttribute="trailing" secondItem="8ou-KC-2UP" secondAttribute="trailing" constant="17" id="SWj-YQ-mh8"/>
+                                    <constraint firstItem="8ou-KC-2UP" firstAttribute="height" secondItem="wox-XP-8bW" secondAttribute="height" id="aHw-YE-n1Y"/>
+                                    <constraint firstItem="8ou-KC-2UP" firstAttribute="top" secondItem="0RX-RT-os6" secondAttribute="top" constant="17" id="bGR-5P-VfQ"/>
+                                    <constraint firstItem="wox-XP-8bW" firstAttribute="top" secondItem="0RX-RT-os6" secondAttribute="top" constant="17" id="dVW-B9-KXv"/>
+                                    <constraint firstAttribute="bottom" secondItem="uNM-t8-NUx" secondAttribute="bottom" constant="17" id="gtr-ts-wcT"/>
+                                    <constraint firstAttribute="trailing" secondItem="uNM-t8-NUx" secondAttribute="trailing" constant="17" id="kDa-lx-tCM"/>
+                                    <constraint firstItem="wox-XP-8bW" firstAttribute="leading" secondItem="0RX-RT-os6" secondAttribute="leading" constant="17" id="zTc-oC-Vke"/>
+                                    <constraint firstItem="uNM-t8-NUx" firstAttribute="top" secondItem="0RX-RT-os6" secondAttribute="top" constant="17" id="zmG-rR-Jsf"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Jqy-S2-k7S" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="80B-Ib-sHi"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jqy-S2-k7S" secondAttribute="trailing" constant="20" id="ZCf-1f-V2E"/>
-                            <constraint firstItem="Jqy-S2-k7S" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="h2g-UG-GHr"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Jqy-S2-k7S" secondAttribute="bottom" constant="20" id="sIN-Bh-H1n"/>
+                            <constraint firstItem="jon-r8-qi0" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="9Kr-sh-AdG"/>
+                            <constraint firstItem="0RX-RT-os6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="9jx-Wl-e1G"/>
+                            <constraint firstItem="0RX-RT-os6" firstAttribute="top" secondItem="jon-r8-qi0" secondAttribute="bottom" id="AF7-Lg-ew5"/>
+                            <constraint firstItem="0RX-RT-os6" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Ju4-uD-5sl"/>
+                            <constraint firstItem="0RX-RT-os6" firstAttribute="top" secondItem="jon-r8-qi0" secondAttribute="bottom" id="KIY-wO-0RY"/>
+                            <constraint firstItem="0RX-RT-os6" firstAttribute="width" secondItem="jon-r8-qi0" secondAttribute="width" id="KRU-xf-mjh"/>
+                            <constraint firstItem="0RX-RT-os6" firstAttribute="height" secondItem="jon-r8-qi0" secondAttribute="height" id="dNX-YW-flW"/>
+                            <constraint firstItem="jon-r8-qi0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="la3-eX-Dbl"/>
+                            <constraint firstItem="0RX-RT-os6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sJP-yJ-3PJ"/>
+                            <constraint firstItem="jon-r8-qi0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="yqM-iY-l8a"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outletCollection property="panels" destination="dKK-aw-Lvb" collectionClass="NSMutableArray" id="NBB-a5-ush"/>
-                        <outletCollection property="panels" destination="Nvh-q3-Ixh" collectionClass="NSMutableArray" id="aYW-rP-PZi"/>
-                        <outletCollection property="panels" destination="wox-XP-8bW" collectionClass="NSMutableArray" id="kHB-KR-6RW"/>
-                        <outletCollection property="panels" destination="8ou-KC-2UP" collectionClass="NSMutableArray" id="5Hv-Ub-5bO"/>
-                        <outletCollection property="panels" destination="uNM-t8-NUx" collectionClass="NSMutableArray" id="w3z-w0-SGL"/>
-                        <outletCollection property="panels" destination="KEH-mv-Lvx" collectionClass="NSMutableArray" id="nwl-hk-a4T"/>
+                        <outlet property="scorePanel" destination="KEH-mv-Lvx" id="vgV-c0-Gh8"/>
+                        <outlet property="startPanel" destination="uNM-t8-NUx" id="I5X-RX-XCO"/>
+                        <outletCollection property="panels" destination="dKK-aw-Lvb" collectionClass="NSMutableArray" id="n2z-fl-7fZ"/>
+                        <outletCollection property="panels" destination="Nvh-q3-Ixh" collectionClass="NSMutableArray" id="8E4-GZ-mEj"/>
+                        <outletCollection property="panels" destination="wox-XP-8bW" collectionClass="NSMutableArray" id="gfP-hT-ZHr"/>
+                        <outletCollection property="panels" destination="8ou-KC-2UP" collectionClass="NSMutableArray" id="dPa-Mx-Iau"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -162,7 +173,7 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="117.39130434782609"/>
+            <point key="canvasLocation" x="116" y="116.49175412293854"/>
         </scene>
     </scenes>
 </document>
