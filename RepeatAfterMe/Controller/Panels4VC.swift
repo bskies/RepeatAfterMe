@@ -7,7 +7,9 @@
 //
 
 
-// General To Dos
+// MARK: General To Dos
+// Remove hard coding of progress bar extremity
+// * Add sound
 // * before game play begins, label buttons as High Scores, Practice mode, Game Modes, Start
 // * Practice mode could include:
 //      - set number, will iterate through different sequences of same length
@@ -19,20 +21,12 @@
 //      - same sequence, incremented each round
 //      - different sequences but DO NOT increment each round
 
-//Changes made to incorporate SwiftyTimer and outlet collection
-//* existing outlets removed
-//* outlet collection added and buttons linked
-//* tags changed from 0-3 to 1-4 (0 default for all objects)
-//* SwiftyTimer pod installed
-//* changed code to use outlet collection
-//
-//To do:
-//* replace my timer stuff with SwiftyTimer
-
 
 import UIKit
 import SwiftyTimer
 import RealmSwift
+import ChameleonFramework
+import AVFoundation
 
 class Panels4VC: UIViewController {
     
@@ -56,11 +50,14 @@ class Panels4VC: UIViewController {
     var noteCount = 0
     var panelSequence:[Int] = []
      
-    let yourAttributes : [NSAttributedStringKey: Any] = [
-        NSAttributedStringKey.font : UIFont.systemFont(ofSize: 30),
-        NSAttributedStringKey.foregroundColor : UIColor.white,
-        //        NSAttributedStringKey.underlineStyle : NSUnderlineStyle.styleSingle.rawValue
-    ]
+//    let yourAttributes : [NSAttributedStringKey: Any] = [
+//        NSAttributedStringKey.font : UIFont.systemFont(ofSize: 30),
+//        NSAttributedStringKey.foregroundColor : UIColor.white,
+//        //        NSAttributedStringKey.underlineStyle : NSUnderlineStyle.styleSingle.rawValue
+//    ]
+    
+    var player = AVAudioPlayer()
+
 
 //    @IBOutlet weak var userMessage: UILabel!
     
@@ -75,24 +72,50 @@ class Panels4VC: UIViewController {
     
     @IBOutlet weak var highScoreScoreLabel: UILabel!
     
+    @IBOutlet weak var progressBar: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        for panel in panels {
-            panel.roundCorner()
-        }
-        
-        scorePanel.roundCorner()
-        startPanel.roundCorner()
+//        for panel in panels {
+//            panel.roundCorner()
+//        }
+//
+//        scorePanel.roundCorner()
+//        startPanel.roundCorner()
 
         loadHighScores()
         
-        for i in highScores {
-            print("\(i.date); \(i.name); \(i.score)")
-        }
+//        for i in highScores {
+//            print("\(i.date); \(i.name); \(i.score)")
+//        }
+        
+        
+//        for i in panels {
+//            i.light(brightHexValue: brightColours[i.tag - 1])
+//        }
+//
+//        startPanel.setLabel(labelText: "")
+//        highScoreNameLabel.text = ""
+//        highScoreScoreLabel.text = ""
+//
+//        Timer.after(playbackTempo * 30) {
+//            self.prepareForStart()
+//        }
+        
+        
+        
+        
         
         prepareForStart()
         
+//        let gradientColours = [UIColor.green,UIColor.red]
+//    
+//        progressBar.backgroundColor = UIColor(gradientStyle: UIGradientStyle.leftToRight, withFrame: progressBar.frame, andColors: gradientColours)
+//        progressBarBackground.backgroundColor = UIColor(gradientStyle: UIGradientStyle.leftToRight, withFrame: progressBarBackground.frame, andColors: gradientColours)
+
+            
+            
 //        panels[0].setTitle("Zero 0", for: .normal)
 //        panels[1].setTitle("One 1", for: .normal)
 //        panels[2].setTitle("Two 2", for: .normal)
@@ -167,6 +190,8 @@ class Panels4VC: UIViewController {
 //            }
 //        }
 
+        print("Setting up score panel: Round: \(panelSequence.count) Score: \(score)")
+        
         panels[redPanelNumber].setLabel(labelText: "Last Game Stats:\n\nRound: \(panelSequence.count)\nScore: \(score)")
         
         prepareForStart()
@@ -174,7 +199,7 @@ class Panels4VC: UIViewController {
 
     func dimPanels () {
         for panel in panels {
-            print(panel.tag)
+//            print(panel.tag)
             panel.dim(brightHexValue: brightColours[panel.tag - 1])
 //            panel.setPanelColour(colourHex: dimColours[panel.tag - 1])
         }
@@ -194,12 +219,71 @@ class Panels4VC: UIViewController {
         }
     }
     
+    func updateProgressBar (itemNumber: Int, of: Int) {
+        if itemNumber == 0 {
+            
+            self.progressBar.frame.size.width = 0
+            
+        } else {
+            
+            UIView.animate(withDuration: 0.3) {
+                let viewWidth = self.view.frame.width - 35
+                
+                
+                //            self.progressBar.frame.size.width = viewWidth * CGFloat(itemNumber + 1) / CGFloat(of)
+                self.progressBar.frame.size.width = viewWidth * CGFloat(itemNumber) / CGFloat(of)
+                
+                //                currentNoteItemInput >= panelSequence.count
+                //
+                //            self.progressBar.frame.size.width = viewWidth * CGFloat(self.currentNoteItemInput + 1) / CGFloat(self.panelSequence.count)
+                //
+                //                print(viewWidth)
+                //
+                //                self.progressBar.frame.size.width += 50
+            }
+        }
+    }
+    
+    
+    
+    
+    
     func handlePressedPanel(_ sender: UILongPressGestureRecognizer, panelNumber: Int) {
         let panel = panels[panelNumber]
 
         if sender.state == UIGestureRecognizerState.began
         {
             panel.light(brightHexValue: brightColours[panelNumber])
+            
+            let audioPath = Bundle.main.path(forResource: sounds[panelNumber], ofType: "m4a")
+            
+            print("\(sounds[panelNumber])")
+            
+            do {
+                try player = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath!))
+                
+                player.play()
+
+            } catch {
+                print("Unable to play sound.")
+            }
+            
+            
+            
+            updateProgressBar(itemNumber: self.currentNoteItemInput + 1, of: self.panelSequence.count)
+            
+//            UIView.animate(withDuration: 0.3) {
+//                let viewWidth = self.view.frame.width - 35
+//
+////                currentNoteItemInput >= panelSequence.count
+//
+//                self.progressBar.frame.size.width = viewWidth * CGFloat(self.currentNoteItemInput + 1) / CGFloat(self.panelSequence.count)
+////
+////                print(viewWidth)
+////
+////                self.progressBar.frame.size.width += 50
+//            }
+            
         } else if sender.state == UIGestureRecognizerState.ended {
 //            print("Panel released - \(panelNumber)")
             moveTimer.invalidate()
@@ -209,14 +293,25 @@ class Panels4VC: UIViewController {
                 
                 panel.dim(brightHexValue: brightColours[panelNumber])
 
+                player.stop()
+
                 if panelNumber == panelSequence[currentNoteItemInput] {
+//                    print("score: \(score) scoreIncrementor \(scoreIncrementor)")
+                    
                     currentNoteItemInput += 1
-                    score += scoreIncrementor
+                    score += panelSequence.count // scoreIncrementor
                     
                     if currentNoteItemInput >= panelSequence.count {
                         moveTimer.invalidate()
                         lockPanels()
+                        
+                        Timer.after(playbackTempo * 0.5) {
+                            self.progressBar.frame.size.width = 0
+                        }
+                        
                         playRound()
+                        
+//                        progressBar.frame.size.width = 0
                     }
                 } else {
 //                    print("INCORRECT panel pressed, wanted \(panelSequence[currentNoteItemInput]) pressed \(panelNumber)")
@@ -276,9 +371,10 @@ class Panels4VC: UIViewController {
 //        startButton.isHidden = false
 //        startButton.isHidden = true
 //        lockPanels()
-        if let text = panels[redPanelNumber].titleLabel?.text {
-            panels[redPanelNumber].setLabel(labelText: text)
-        }
+        
+//        if let text = panels[redPanelNumber].titleLabel?.text {
+//            panels[redPanelNumber].setLabel(labelText: text)
+//        }
         
 //      Set up START panel
         panels[greenPanelNumber].hidePanel()
@@ -287,6 +383,9 @@ class Panels4VC: UIViewController {
         scorePanel.unhidePanel()
         highScoreNameLabel.isHidden = false
         highScoreScoreLabel.isHidden = false
+        
+//        print("About to size progressBar to 0")
+//        progressBar.frame.size.width = 0
 
 //        panels[4].unhidePanel()
 //        panels[4].enable()
@@ -305,12 +404,12 @@ class Panels4VC: UIViewController {
 //        panels[5].enable()
 
         for highScore in highScores {
-            print(highScore.score)
+//            print(highScore.score)
 //            highScoreText += String(highScore.score) + "\n"
             highScoreName += "\(highScore.name) \(dateFormatter.string(from: highScore.date)) \n"
             highScoreScore += String(highScore.score) + "\n"
             
-            print(dateFormatter.string(from: highScore.date))
+//            print(dateFormatter.string(from: highScore.date))
         }
         
 //        scorePanel.setTitle(highScoreText, for: .normal)
@@ -325,6 +424,9 @@ class Panels4VC: UIViewController {
 
     func playRound () {
         gameIsOver = false
+
+        // Change not being displayed until later
+//        self.progressBar.frame.size.width = 0
 
         currentNoteItemPlayed = 0
         
@@ -360,13 +462,25 @@ class Panels4VC: UIViewController {
 //            self.panels[currentNote].flash(numberOfTimes: 1, everySecs: 0, lightUpForSecs: self.playbackFlashDuration, dimHexValue: dimColours[currentNote], brightHexValue: brightColours[currentNote])
 
             self.panels[currentNote].flash(numberOfTimes: 1, everySecs: 0, lightUpForSecs: self.playbackFlashDuration, brightHexValue: brightColours[currentNote])
+            
+            
 
+            self.updateProgressBar(itemNumber: self.currentNoteItemPlayed + 1, of: self.noteCount)
+            
 //            self.panels[currentNote].flash(numberOfTimes: 1, everySecs: 0, lightUpForSecs: self.playbackFlashDuration)
 
             self.currentNoteItemPlayed += 1
             
             if self.currentNoteItemPlayed >= self.noteCount {
                 timer.invalidate()
+
+//                self.progressBar.frame.size.width = 0
+                
+                Timer.after(self.playbackTempo * 0.5, {
+                    self.updateProgressBar(itemNumber: 0, of: 1)
+//                                    self.progressBar.frame.size.width = 0
+                })
+
                 print ("Sequence done")
     
                 self.moveTimer = Timer.scheduledTimer(timeInterval: allowedDelay, target: self, selector: #selector(self.missedMove), userInfo: nil, repeats: false)
@@ -411,27 +525,27 @@ class Panels4VC: UIViewController {
 //    }
     
     @IBAction func handleGreenPress (_ sender: UILongPressGestureRecognizer) {
-        print("Green pressed")
+//        print("Green pressed")
         handlePressedPanel(sender, panelNumber: greenPanelNumber)
     }
     
     @IBAction func handleRedPress(_ sender: UILongPressGestureRecognizer) {
-        print("Red pressed")
+//        print("Red pressed")
         handlePressedPanel(sender, panelNumber: redPanelNumber)
     }
     
     @IBAction func handleYellowPress(_ sender: UILongPressGestureRecognizer) {
-        print("Yellow pressed")
+//        print("Yellow pressed")
         handlePressedPanel(sender, panelNumber: yellowPanelNumber)
     }
     
     @IBAction func handleBluePress(_ sender: UILongPressGestureRecognizer) {
-        print("Blue pressed")
+//        print("Blue pressed")
         handlePressedPanel(sender, panelNumber: bluePanelNumber)
     }
     
     @IBAction func handleStartButtonPress(_ sender: Any) {
-        print("Blue START pressed")
+//        print("Blue START pressed")
         startGame()
     }
 }

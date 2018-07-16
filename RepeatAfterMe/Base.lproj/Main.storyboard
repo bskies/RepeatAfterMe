@@ -20,10 +20,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jon-r8-qi0" userLabel="Top View">
-                                <rect key="frame" x="0.0" y="20" width="375" height="323.5"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="311"/>
                                 <subviews>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nvh-q3-Ixh" userLabel="RedButton" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
-                                        <rect key="frame" x="196" y="17" width="162" height="290"/>
+                                        <rect key="frame" x="196" y="17" width="162" height="277.5"/>
                                         <color key="backgroundColor" red="0.77897135416666663" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <gestureRecognizers/>
                                         <connections>
@@ -31,7 +31,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="dKK-aw-Lvb" userLabel="GreenButton" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
-                                        <rect key="frame" x="17" y="17" width="162" height="290"/>
+                                        <rect key="frame" x="17" y="17" width="162" height="277.5"/>
                                         <color key="backgroundColor" red="0.0" green="0.77254901960784317" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <gestureRecognizers/>
                                         <state key="normal">
@@ -42,7 +42,7 @@
                                         </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" tag="6" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="KEH-mv-Lvx" userLabel="ScoreButton" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
-                                        <rect key="frame" x="17" y="17" width="162" height="289.5"/>
+                                        <rect key="frame" x="17" y="17" width="162" height="277"/>
                                         <color key="backgroundColor" red="0.0" green="0.7725490196" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <gestureRecognizers/>
                                         <state key="normal">
@@ -50,13 +50,13 @@
                                         </state>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zy8-3y-R2T" userLabel="ScoreNameLabel">
-                                        <rect key="frame" x="25" y="17" width="97" height="290"/>
+                                        <rect key="frame" x="25" y="17" width="97.5" height="277.5"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pb7-tZ-wFh" userLabel="ScoreLabel">
-                                        <rect key="frame" x="122" y="17" width="49" height="290"/>
+                                        <rect key="frame" x="122.5" y="17" width="48.5" height="277.5"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -93,10 +93,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0RX-RT-os6" userLabel="Bottom View">
-                                <rect key="frame" x="0.0" y="343.5" width="375" height="323.5"/>
+                                <rect key="frame" x="0.0" y="336" width="375" height="331"/>
                                 <subviews>
                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="8ou-KC-2UP" userLabel="BlueButton" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
-                                        <rect key="frame" x="196" y="17" width="162" height="289.5"/>
+                                        <rect key="frame" x="196" y="17" width="162" height="297"/>
                                         <color key="backgroundColor" red="0.0" green="0.13145616319444445" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <gestureRecognizers/>
                                         <connections>
@@ -104,7 +104,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="wox-XP-8bW" userLabel="YellowButton" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
-                                        <rect key="frame" x="17" y="17" width="162" height="289.5"/>
+                                        <rect key="frame" x="17" y="17" width="162" height="297"/>
                                         <color key="backgroundColor" red="0.82476128472222221" green="0.79142252604166663" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <gestureRecognizers/>
                                         <state key="normal">
@@ -115,7 +115,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="uNM-t8-NUx" customClass="GamePanel" customModule="RepeatAfterMe" customModuleProvider="target">
-                                        <rect key="frame" x="196" y="17" width="162" height="289.5"/>
+                                        <rect key="frame" x="196" y="17" width="162" height="297"/>
                                         <color key="backgroundColor" red="0.0" green="0.1314561632" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <gestureRecognizers/>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="48"/>
@@ -145,18 +145,27 @@
                                     <constraint firstItem="uNM-t8-NUx" firstAttribute="top" secondItem="0RX-RT-os6" secondAttribute="top" constant="17" id="zmG-rR-Jsf"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E3E-mg-CNU" userLabel="ProgressBar">
+                                <rect key="frame" x="16" y="331" width="0.0" height="5"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="5" id="jck-yy-qk5"/>
+                                    <constraint firstAttribute="width" id="qzD-sD-PeI"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="E3E-mg-CNU" firstAttribute="top" secondItem="jon-r8-qi0" secondAttribute="bottom" id="5Ft-yZ-qPj"/>
                             <constraint firstItem="jon-r8-qi0" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="9Kr-sh-AdG"/>
                             <constraint firstItem="0RX-RT-os6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="9jx-Wl-e1G"/>
-                            <constraint firstItem="0RX-RT-os6" firstAttribute="top" secondItem="jon-r8-qi0" secondAttribute="bottom" id="AF7-Lg-ew5"/>
+                            <constraint firstItem="0RX-RT-os6" firstAttribute="top" secondItem="E3E-mg-CNU" secondAttribute="bottom" id="AF7-Lg-ew5"/>
                             <constraint firstItem="0RX-RT-os6" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Ju4-uD-5sl"/>
-                            <constraint firstItem="0RX-RT-os6" firstAttribute="top" secondItem="jon-r8-qi0" secondAttribute="bottom" id="KIY-wO-0RY"/>
                             <constraint firstItem="0RX-RT-os6" firstAttribute="width" secondItem="jon-r8-qi0" secondAttribute="width" id="KRU-xf-mjh"/>
-                            <constraint firstItem="0RX-RT-os6" firstAttribute="height" secondItem="jon-r8-qi0" secondAttribute="height" id="dNX-YW-flW"/>
+                            <constraint firstItem="E3E-mg-CNU" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="VFz-a4-g4R"/>
                             <constraint firstItem="jon-r8-qi0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="la3-eX-Dbl"/>
                             <constraint firstItem="0RX-RT-os6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sJP-yJ-3PJ"/>
+                            <constraint firstItem="E3E-mg-CNU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="tNH-br-4L0"/>
                             <constraint firstItem="jon-r8-qi0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="yqM-iY-l8a"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -164,6 +173,7 @@
                     <connections>
                         <outlet property="highScoreNameLabel" destination="Zy8-3y-R2T" id="EuE-1A-xOr"/>
                         <outlet property="highScoreScoreLabel" destination="pb7-tZ-wFh" id="MwH-B0-pxx"/>
+                        <outlet property="progressBar" destination="E3E-mg-CNU" id="ib2-dl-qcb"/>
                         <outlet property="scorePanel" destination="KEH-mv-Lvx" id="vgV-c0-Gh8"/>
                         <outlet property="startPanel" destination="uNM-t8-NUx" id="I5X-RX-XCO"/>
                         <outletCollection property="panels" destination="dKK-aw-Lvb" collectionClass="NSMutableArray" id="n2z-fl-7fZ"/>

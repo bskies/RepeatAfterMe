@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		111263F320FC866800519796 /* Yellow.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 111263EF20FC866700519796 /* Yellow.m4a */; };
+		111263F420FC866800519796 /* Green.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 111263F020FC866800519796 /* Green.m4a */; };
+		111263F520FC866800519796 /* Red.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 111263F120FC866800519796 /* Red.m4a */; };
+		111263F620FC866800519796 /* Blue.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 111263F220FC866800519796 /* Blue.m4a */; };
 		1122196420DF9AC500ECF5F8 /* HighScores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1122196320DF9AC500ECF5F8 /* HighScores.swift */; };
 		1156F4F32089E17400F2372E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1156F4F22089E17400F2372E /* Constants.swift */; };
 		11668CC220DC36DE000EDFBB /* GamePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11668CC120DC36DE000EDFBB /* GamePanel.swift */; };
@@ -19,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		111263EF20FC866700519796 /* Yellow.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = Yellow.m4a; path = Sounds/Yellow.m4a; sourceTree = SOURCE_ROOT; };
+		111263F020FC866800519796 /* Green.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = Green.m4a; path = Sounds/Green.m4a; sourceTree = SOURCE_ROOT; };
+		111263F120FC866800519796 /* Red.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = Red.m4a; path = Sounds/Red.m4a; sourceTree = SOURCE_ROOT; };
+		111263F220FC866800519796 /* Blue.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = Blue.m4a; path = Sounds/Blue.m4a; sourceTree = SOURCE_ROOT; };
 		1122196320DF9AC500ECF5F8 /* HighScores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScores.swift; sourceTree = "<group>"; };
 		1156F4F22089E17400F2372E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		11668CC120DC36DE000EDFBB /* GamePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePanel.swift; sourceTree = "<group>"; };
@@ -99,6 +107,10 @@
 				11F97767205CB07F00057241 /* Main.storyboard */,
 				11F9776A205CB07F00057241 /* Assets.xcassets */,
 				11F9776C205CB07F00057241 /* LaunchScreen.storyboard */,
+				111263F220FC866800519796 /* Blue.m4a */,
+				111263F020FC866800519796 /* Green.m4a */,
+				111263F120FC866800519796 /* Red.m4a */,
+				111263EF20FC866700519796 /* Yellow.m4a */,
 				11F9776F205CB07F00057241 /* Info.plist */,
 			);
 			path = RepeatAfterMe;
@@ -190,8 +202,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				111263F520FC866800519796 /* Red.m4a in Resources */,
 				11F9776E205CB07F00057241 /* LaunchScreen.storyboard in Resources */,
+				111263F620FC866800519796 /* Blue.m4a in Resources */,
 				11F9776B205CB07F00057241 /* Assets.xcassets in Resources */,
+				111263F420FC866800519796 /* Green.m4a in Resources */,
+				111263F320FC866800519796 /* Yellow.m4a in Resources */,
 				11F97769205CB07F00057241 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

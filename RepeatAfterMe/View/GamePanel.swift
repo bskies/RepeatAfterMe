@@ -12,11 +12,16 @@ import ChameleonFramework
 class GamePanel: UIButton {
 //    let panelDimAlphaValue = CGFloat(0.3)
     
-    init() {
-        super.init(frame: .zero)
-        setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .disabled)
-//        self.layer.cornerRadius = 25
-        setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
+//    init() {
+//        super.init(frame: .zero)
+//        setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .disabled)
+////        self.layer.cornerRadius = 25
+//        setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
+//    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        layer.cornerRadius = 15
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -96,10 +101,10 @@ class GamePanel: UIButton {
     func setPanelColour (colourHex: String) {
         self.backgroundColor = UIColor(hexString: colourHex)
     }
-
-    func roundCorner () {
-        self.layer.cornerRadius = 15
-    }
+//
+//    func roundCorner () {
+////        self.layer.cornerRadius = 15
+//    }
 
     func enable () {
         self.isEnabled = true

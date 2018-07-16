@@ -29,5 +29,6 @@ let bluePanelNumber = 3
 
 
 let brightColours = ["1FC923","A71A11","AFA623","0D3EC9"]
+let sounds = ["Green", "Red", "Yellow", "Blue"]
 
 //let brightColours = ["1FC923","A71A11","0D3EC9","AFA623"]
