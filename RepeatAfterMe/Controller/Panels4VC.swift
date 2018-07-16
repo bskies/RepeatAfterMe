@@ -9,7 +9,7 @@
 
 // MARK: General To Dos
 // Remove hard coding of progress bar extremity
-// * Add sound
+// * Try to fix sound. Clipping, stops working for one or more panels.
 // * before game play begins, label buttons as High Scores, Practice mode, Game Modes, Start
 // * Practice mode could include:
 //      - set number, will iterate through different sequences of same length
@@ -56,7 +56,11 @@ class Panels4VC: UIViewController {
 //        //        NSAttributedStringKey.underlineStyle : NSUnderlineStyle.styleSingle.rawValue
 //    ]
     
-    var player = AVAudioPlayer()
+    var greenPlayer = AVAudioPlayer()
+    var redPlayer = AVAudioPlayer()
+    var yellowPlayer = AVAudioPlayer()
+    var bluePlayer = AVAudioPlayer()
+    var audioPlayer = AVAudioPlayer()
 
 
 //    @IBOutlet weak var userMessage: UILabel!
@@ -103,7 +107,36 @@ class Panels4VC: UIViewController {
 //            self.prepareForStart()
 //        }
         
+        let greenAudioPath = Bundle.main.path(forResource: "Green", ofType: "m4a")
+        let redAudioPath = Bundle.main.path(forResource: "Red", ofType: "m4a")
+        let yellowAudioPath = Bundle.main.path(forResource: "Yellow", ofType: "m4a")
+        let blueAudioPath = Bundle.main.path(forResource: "Blue", ofType: "m4a")
+
+//        print("\(sounds[panelNumber])")
         
+        do {
+            try greenPlayer = AVAudioPlayer(contentsOf: URL(fileURLWithPath: greenAudioPath!))
+        } catch {
+            print("Unable to play green sound.")
+        }
+        
+        do {
+            try redPlayer = AVAudioPlayer(contentsOf: URL(fileURLWithPath: redAudioPath!))
+        } catch {
+            print("Unable to play red sound.")
+        }
+        
+        do {
+            try yellowPlayer = AVAudioPlayer(contentsOf: URL(fileURLWithPath: yellowAudioPath!))
+        } catch {
+            print("Unable to play yellow sound.")
+        }
+        
+        do {
+            try bluePlayer = AVAudioPlayer(contentsOf: URL(fileURLWithPath: blueAudioPath!))
+        } catch {
+            print("Unable to play blue sound.")
+        }
         
         
         
@@ -248,25 +281,27 @@ class Panels4VC: UIViewController {
     
     
     
-    func handlePressedPanel(_ sender: UILongPressGestureRecognizer, panelNumber: Int) {
+    func handlePressedPanel(_ sender: UILongPressGestureRecognizer, panelNumber: Int, audioPlayer: AVAudioPlayer) {
         let panel = panels[panelNumber]
 
         if sender.state == UIGestureRecognizerState.began
         {
             panel.light(brightHexValue: brightColours[panelNumber])
             
-            let audioPath = Bundle.main.path(forResource: sounds[panelNumber], ofType: "m4a")
+//            let audioPath = Bundle.main.path(forResource: sounds[panelNumber], ofType: "m4a")
             
             print("\(sounds[panelNumber])")
             
-            do {
-                try player = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath!))
-                
-                player.play()
+            audioPlayer.play()
 
-            } catch {
-                print("Unable to play sound.")
-            }
+//            do {
+//                try player = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath!))
+//
+//                player.play()
+//
+//            } catch {
+//                print("Unable to play sound.")
+//            }
             
             
             
@@ -293,7 +328,7 @@ class Panels4VC: UIViewController {
                 
                 panel.dim(brightHexValue: brightColours[panelNumber])
 
-                player.stop()
+                audioPlayer.stop()
 
                 if panelNumber == panelSequence[currentNoteItemInput] {
 //                    print("score: \(score) scoreIncrementor \(scoreIncrementor)")
@@ -322,6 +357,7 @@ class Panels4VC: UIViewController {
     }
     
     @objc func missedMove () {
+        
         print ("missedMove initiated")
 
         panelToFlash = panelSequence[currentNoteItemInput]
@@ -329,8 +365,18 @@ class Panels4VC: UIViewController {
         moveTimer.invalidate()
 
         lockPanels()
+        
+        if panelToFlash == 0 {
+            audioPlayer = greenPlayer
+        } else if panelToFlash == 1 {
+            audioPlayer = redPlayer
+        } else if panelToFlash == 2 {
+            audioPlayer = yellowPlayer
+        } else if panelToFlash == 3 {
+            audioPlayer = bluePlayer
+        }
 
-        panels[panelToFlash].flash(numberOfTimes: numberFlashesOnFail, everySecs: flashDuration * 2, lightUpForSecs: flashDuration, brightHexValue: brightColours[panelToFlash])
+        panels[panelToFlash].flash(numberOfTimes: numberFlashesOnFail, everySecs: flashDuration * 2, lightUpForSecs: flashDuration, brightHexValue: brightColours[panelToFlash], audioPlayer: audioPlayer)
 
 //        panels[panelToFlash].flash(numberOfTimes: numberFlashesOnFail, everySecs: flashDuration * 2, lightUpForSecs: flashDuration)
 
@@ -344,7 +390,17 @@ class Panels4VC: UIViewController {
         panelToFlash = panelNumber
         moveTimer.invalidate()
         
-        panels[panelNumber].flash(numberOfTimes: numberFlashesOnFail, everySecs: flashDuration * 2, lightUpForSecs: flashDuration, brightHexValue: brightColours[panelNumber])
+        if panelToFlash == 0 {
+            audioPlayer = greenPlayer
+        } else if panelToFlash == 1 {
+            audioPlayer = redPlayer
+        } else if panelToFlash == 2 {
+            audioPlayer = yellowPlayer
+        } else if panelToFlash == 3 {
+            audioPlayer = bluePlayer
+        }
+        
+        panels[panelNumber].flash(numberOfTimes: numberFlashesOnFail, everySecs: flashDuration * 2, lightUpForSecs: flashDuration, brightHexValue: brightColours[panelNumber], audioPlayer: audioPlayer)
 
 //        panels[panelNumber].flash(numberOfTimes: numberFlashesOnFail, everySecs: flashDuration * 2, lightUpForSecs: flashDuration, dimHexValue: dimColours[panelNumber], brightHexValue: brightColours[panelNumber])
 
@@ -461,7 +517,17 @@ class Panels4VC: UIViewController {
             let currentNote = self.panelSequence[self.currentNoteItemPlayed]
 //            self.panels[currentNote].flash(numberOfTimes: 1, everySecs: 0, lightUpForSecs: self.playbackFlashDuration, dimHexValue: dimColours[currentNote], brightHexValue: brightColours[currentNote])
 
-            self.panels[currentNote].flash(numberOfTimes: 1, everySecs: 0, lightUpForSecs: self.playbackFlashDuration, brightHexValue: brightColours[currentNote])
+            if currentNote == 0 {
+                self.audioPlayer = self.greenPlayer
+            } else if currentNote == 1 {
+                self.audioPlayer = self.redPlayer
+            } else if currentNote == 2 {
+                self.audioPlayer = self.yellowPlayer
+            } else if currentNote == 3 {
+                self.self.audioPlayer = self.bluePlayer
+            }
+            
+            self.panels[currentNote].flash(numberOfTimes: 1, everySecs: 0, lightUpForSecs: self.playbackFlashDuration, brightHexValue: brightColours[currentNote], audioPlayer: self.audioPlayer)
             
             
 
@@ -526,22 +592,22 @@ class Panels4VC: UIViewController {
     
     @IBAction func handleGreenPress (_ sender: UILongPressGestureRecognizer) {
 //        print("Green pressed")
-        handlePressedPanel(sender, panelNumber: greenPanelNumber)
+        handlePressedPanel(sender, panelNumber: greenPanelNumber, audioPlayer: greenPlayer )
     }
     
     @IBAction func handleRedPress(_ sender: UILongPressGestureRecognizer) {
 //        print("Red pressed")
-        handlePressedPanel(sender, panelNumber: redPanelNumber)
+        handlePressedPanel(sender, panelNumber: redPanelNumber, audioPlayer: redPlayer)
     }
     
     @IBAction func handleYellowPress(_ sender: UILongPressGestureRecognizer) {
 //        print("Yellow pressed")
-        handlePressedPanel(sender, panelNumber: yellowPanelNumber)
+        handlePressedPanel(sender, panelNumber: yellowPanelNumber, audioPlayer: yellowPlayer)
     }
     
     @IBAction func handleBluePress(_ sender: UILongPressGestureRecognizer) {
 //        print("Blue pressed")
-        handlePressedPanel(sender, panelNumber: bluePanelNumber)
+        handlePressedPanel(sender, panelNumber: bluePanelNumber, audioPlayer: bluePlayer)
     }
     
     @IBAction func handleStartButtonPress(_ sender: Any) {

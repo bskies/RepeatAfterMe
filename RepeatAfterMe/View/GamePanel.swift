@@ -8,6 +8,7 @@
 
 import UIKit
 import ChameleonFramework
+import AVFoundation
 
 class GamePanel: UIButton {
 //    let panelDimAlphaValue = CGFloat(0.3)
@@ -19,16 +20,18 @@ class GamePanel: UIButton {
 //        setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
 //    }
     
+    var player = AVAudioPlayer()
+
     override func awakeFromNib() {
         super.awakeFromNib()
         layer.cornerRadius = 15
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-
-//        fatalError("init(coder:) has not been implemented")
-    }
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//
+////        fatalError("init(coder:) has not been implemented")
+//    }
     
 //    func flash (numberOfTimes: Int, everySecs: Double, lightUpForSecs: Double) {
 //        var timesFlashed = 0
@@ -49,7 +52,23 @@ class GamePanel: UIButton {
 //        }
 //    }
 
-    func flash (numberOfTimes: Int, everySecs: Double, lightUpForSecs: Double, brightHexValue:String) {
+//    func flash (numberOfTimes: Int, everySecs: Double, lightUpForSecs: Double, brightHexValue: String, sound: String) {
+    func flash (numberOfTimes: Int, everySecs: Double, lightUpForSecs: Double, brightHexValue: String, audioPlayer: AVAudioPlayer) {
+//        let audioPath = Bundle.main.path(forResource: sound, ofType: "m4a")
+        
+//        print("\(sounds[panelNumber])")
+        
+        audioPlayer.play()
+
+//        do {
+//            try player = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath!))
+//
+//            player.play()
+//
+//        } catch {
+//            print("Unable to play sound.")
+//        }
+
 //        func flash (numberOfTimes: Int, everySecs: Double, lightUpForSecs: Double, dimHexValue: String, brightHexValue:String) {
 //    func flash (numberOfTimes: Int, everySecs: Double, lightUpForSecs: Double) {
 
@@ -69,6 +88,9 @@ class GamePanel: UIButton {
                 self.backgroundColor = UIColor(hexString: brightHexValue, withAlpha: panelDimAlphaValue)
 //                self.alpha = self.panelDimAlphaValue
 //                self.setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
+//                self.player.stop()
+
+                audioPlayer.stop()
             }
             
             if timesFlashed >= numberOfTimes {
